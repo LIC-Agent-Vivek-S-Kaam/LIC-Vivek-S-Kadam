@@ -13,11 +13,11 @@
 /* --- Modern Aesthetic & Professional CSS --- */
 /* ------------------------------------------- */
 :root{
-    --brand: #004aad; /* Primary Blue (Used for consistency) */
+    --brand: #004aad; 
     --brand-dark: #002c70;
-    --accent: #25D366; /* WhatsApp Green */
-    --gold: #FFD700; /* Gold for stars */
-    --trust-gold: #e2b700; /* Darker Gold for text emphasis */
+    --accent: #25D366; 
+    --gold: #FFD700; 
+    --trust-gold: #e2b700; 
     --background: #f7f9fc;
     --card-bg: rgba(255, 255, 255, 0.9);
     --shadow-subtle: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
@@ -37,12 +37,8 @@ body{
 a{color:var(--brand);text-decoration:none; transition: color 0.2s}
 a:hover{color:var(--brand-dark)}
 
-/* FIX: Ensure hidden class hides elements regardless of their natural display type */
-.hidden {
-    display: none !important; 
-}
+.hidden { display: none !important; }
 
-/* Header Styling */
 header{
     background: linear-gradient(135deg, var(--brand) 0%, #003a8f 100%);
     color:#fff;
@@ -57,168 +53,45 @@ header h1{font-size: 2.8em;font-weight: 800;margin:0 0 5px;}
     width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 8px 15px rgba(0,0,0,0.25);display:block;margin:25px auto 0;transition: transform 0.3s ease;
 }
 
-/* Navigation Styling (Sticky) */
 nav{
     background:var(--card-bg);backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);padding:12px;text-align:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 nav a{color:var(--brand-dark);margin:0 15px;font-weight:600;padding: 5px 10px; border-radius: 5px; transition: background-color 0.3s;}
 
-/* MDRT Text Highlight */
-.mdrt-highlight {
-    font-weight: 700;
-    color: var(--trust-gold);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
+.mdrt-highlight { font-weight: 700; color: var(--trust-gold); text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
 
-/* Cards & Animate-in */
 .container{max-width:1100px;margin:40px auto;padding:0 20px}
 .card{
     background:var(--card-bg);border-radius:15px;padding:35px;box-shadow:var(--shadow-subtle);border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: 
-        transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-        opacity 0.6s ease-out, 
-        box-shadow 0.3s;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease-out, box-shadow 0.3s;
     margin-bottom: 30px;
 }
 .animate-in {opacity: 0;transform: translateY(60px);}
-.animate-in.visible {
-    opacity: 1;transform: translateY(0);transition-delay: var(--delay, 0ms);
-}
+.animate-in.visible { opacity: 1;transform: translateY(0);transition-delay: var(--delay, 0ms); }
 
-/* Custom List Styles */
 #about ul {list-style: none;padding-left: 0;}
 #about ul li {padding-left: 1.5em;position: relative;margin-bottom: 10px;}
 #about ul li::before {content: '✅';color: var(--accent);font-weight: 700;position: absolute;left: 0;}
 
-/* Input/Search Bar Styling */
-#planSearch {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-#planSearch:focus {
-    border-color: var(--brand);
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 74, 173, 0.2);
-}
+#planSearch { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
 
-/* Buttons */
 .btn{display:inline-block;padding:14px 28px;border-radius:30px;background:linear-gradient(90deg, var(--brand), #005a9d);color:#fff;font-weight:700;border:0;cursor:pointer;transition: all 0.2s ease;text-transform: uppercase;letter-spacing: 0.5px;box-shadow: 0 4px 10px rgba(0, 74, 173, 0.3);}
-.btn:hover{background:var(--brand-dark); box-shadow: 0 6px 15px rgba(0, 44, 112, 0.4);}
 .btn-green{background:linear-gradient(90deg, var(--accent), #1cb355);box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);}
 
-/* Contact Actions */
-.contact-actions {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: center;
-}
-.contact-actions a {
-    flex-grow: 1;
-    max-width: 300px;
-    text-align: center;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
+.contact-actions { display: flex; gap: 20px; margin-top: 20px; justify-content: center; }
+.contact-actions a { flex-grow: 1; max-width: 300px; text-align: center; padding: 12px 20px; border-radius: 8px; font-weight: 700; text-transform: uppercase; }
 .contact-whatsapp {background-color: var(--accent); color: white;}
 .contact-call {background-color: var(--brand); color: white;}
 
-/* Plan Card Styling */
-.plan {
-    border-left: 5px solid var(--brand); 
-    border-radius: 10px;padding: 20px;margin-bottom: 20px;background: #fff;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
+.plan { border-left: 5px solid var(--brand); border-radius: 10px;padding: 20px;margin-bottom: 20px;background: #fff;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
 
-/* Table Styling */
 table{width:100%;border-collapse:collapse;margin-top:20px;font-size:15px}
 th,td{padding:15px 12px;border:1px solid #eef4f8;text-align:left;vertical-align:middle}
 th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;}
 
-/* Table Row Hover State */
-#planTable tbody tr:hover {
-    background-color: #e8f0f8; 
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-/* Language Toggle CSS */
-#langToggle {
-    position: fixed;
-    bottom: 15px;
-    right: 15px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    background: var(--card-bg);
-    padding: 8px 12px;
-    border-radius: 30px;
-    box-shadow: var(--shadow-strong);
-    cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.3s;
-}
-#langToggle span {margin: 0 5px; color: var(--brand-dark);}
-#langToggle:hover {transform: scale(1.05);}
-.switch {
-    width: 40px;
-    height: 20px;
-    background-color: #ccc;
-    border-radius: 10px;
-    position: relative;
-    transition: background-color 0.3s;
-}
-.knob {
-    width: 18px;
-    height: 18px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-#langToggle[data-lang="mr"] .switch {background-color: var(--brand);}
-#langToggle[data-lang="mr"] .knob {
-    transform: translateX(20px);
-}
-
-/* Fixed Mobile Contact Bar */
-#mobileContactBar {
-    display: none;position: fixed;bottom: 0;left: 0;width: 100%;background: #fff;box-shadow: 0 -4px 15px rgba(0,0,0,0.1);z-index: 1000;padding: 10px 15px;gap: 10px;
-}
-#mobileContactBar a {
-    flex: 1;padding: 12px 10px;border-radius: 8px;font-weight: 700;text-align: center;text-transform: uppercase;
-}
-.mobile-whatsapp {background-color: var(--accent); color: white;}
-.mobile-call {background-color: var(--brand); color: white;}
-
-/* Chatbot Button Styling */
-#chatbotBtn {
-    position: fixed;bottom: 15px;left: 15px;background-color: var(--brand);color: white;border: none;border-radius: 50%;width: 50px;height: 50px;font-size: 1.5em;cursor: pointer;box-shadow: var(--shadow-strong);z-index: 1000;transition: background-color 0.2s;
-}
-#chatbotWindow {
-    position: fixed;bottom: 75px;left: 15px;width: 300px;height: 400px;background: #fff;border-radius: 10px;box-shadow: var(--shadow-strong);z-index: 999;display: none;flex-direction: column;overflow: hidden;
-}
-#chatbotHeader {background-color: var(--brand);color: white;padding: 10px;font-weight: 600;cursor: pointer;}
-#chatbotBody {flex-grow: 1;padding: 10px;overflow-y: auto;border-bottom: 1px solid #eee; display: flex; flex-direction: column;}
-#chatbotInput {width: 100%;padding: 10px;border: none;border-top: 1px solid #eee;outline: none;}
-.msg-bot, .msg-user {padding: 8px;margin-bottom: 8px;border-radius: 8px;max-width: 80%;}
-.msg-bot {background: #e6f7ff; align-self: flex-start;}
-.msg-user {background: #d4edda; align-self: flex-end; margin-left: auto;}
-
-/* ------------------------------------------- */
-/* --- ADDED: NEW PRO FEATURES STYLING --- */
-/* ------------------------------------------- */
+/* --- NEW FEATURE STYLES --- */
 .calc-tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 20px; }
-.calc-tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: none; font-weight: 600; color: #666; }
+.calc-tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: none; font-weight: 600; color: #666; font-family: 'Poppins', sans-serif;}
 .calc-tab-btn.active { color: var(--brand); border-bottom: 2px solid var(--brand); }
 .calc-content { display: none; padding: 20px 0; }
 .calc-content.active { display: block; }
@@ -228,18 +101,31 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 .calc-result { background: #e8f0f8; padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 5px solid var(--brand); }
 .niche-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
 .niche-card { background: #fff; padding: 20px; border-radius: 15px; border: 1px solid #eee; box-shadow: var(--shadow-subtle); transition: transform 0.3s; }
-.niche-card:hover { transform: translateY(-5px); }
-.lead-magnet { background: linear-gradient(135deg, #fff 0%, #eef4f8 100%); border: 2px dashed var(--brand); text-align: center; }
-.floating-wa { position: fixed; bottom: 80px; right: 15px; background: var(--accent); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-strong); z-index: 999; }
+.lead-magnet-box { background: linear-gradient(135deg, #fff 0%, #eef4f8 100%); border: 2px dashed var(--brand); text-align: center; }
+
+#langToggle { position: fixed; bottom: 15px; right: 15px; z-index: 1000; display: flex; align-items: center; background: var(--card-bg); padding: 8px 12px; border-radius: 30px; box-shadow: var(--shadow-strong); cursor: pointer; font-weight: 600; }
+.switch { width: 40px; height: 20px; background-color: #ccc; border-radius: 10px; position: relative; }
+.knob { width: 18px; height: 18px; background-color: #fff; border-radius: 50%; position: absolute; top: 1px; left: 1px; transition: transform 0.3s; }
+#langToggle[data-lang="mr"] .knob { transform: translateX(20px); }
+
+#mobileContactBar { display: none;position: fixed;bottom: 0;left: 0;width: 100%;background: #fff;box-shadow: 0 -4px 15px rgba(0,0,0,0.1);z-index: 1000;padding: 10px 15px;gap: 10px; }
+#mobileContactBar a { flex: 1;padding: 12px 10px;border-radius: 8px;font-weight: 700;text-align: center;text-transform: uppercase; }
+.mobile-whatsapp {background-color: var(--accent); color: white;}
+.mobile-call {background-color: var(--brand); color: white;}
+
+#chatbotBtn { position: fixed;bottom: 15px;left: 15px;background-color: var(--brand);color: white;border: none;border-radius: 50%;width: 50px;height: 50px;font-size: 1.5em;cursor: pointer;box-shadow: var(--shadow-strong);z-index: 1000; }
+#chatbotWindow { position: fixed;bottom: 75px;left: 15px;width: 300px;height: 400px;background: #fff;border-radius: 10px;box-shadow: var(--shadow-strong);z-index: 999;display: none;flex-direction: column;overflow: hidden; }
+#chatbotHeader {background-color: var(--brand);color: white;padding: 10px;font-weight: 600;}
+#chatbotBody {flex-grow: 1;padding: 10px;overflow-y: auto; display: flex; flex-direction: column;}
+#chatbotInput {width: 100%;padding: 10px;border: none;border-top: 1px solid #eee;outline: none;}
+.msg-bot {background: #e6f7ff; align-self: flex-start; padding: 8px; margin-bottom: 8px; border-radius: 8px;}
+.msg-user {background: #d4edda; align-self: flex-end; padding: 8px; margin-bottom: 8px; border-radius: 8px; margin-left: auto;}
 
 @media(max-width:768px){
     #mobileContactBar {display: flex;}
-    #langToggle {bottom: 15px;}
-    #chatbotBtn {bottom: 85px; left: 15px;}
-    #chatbotWindow { bottom: 145px; left: 50%; transform: translateX(-50%); width: 90%; height: 350px; }
-    nav a {margin: 0 8px;}
-    .contact-actions { flex-direction: column; gap: 10px; }
-    .contact-actions a { max-width: 100%; }
+    #chatbotBtn {bottom: 85px;}
+    #chatbotWindow {bottom: 145px; width: 90%; left: 5%;}
+    .contact-actions {flex-direction: column;}
 }
 </style>
 </head>
@@ -255,7 +141,8 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     <a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">आमच्याबद्दल</span></a>
     <a href="#plans-table"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
     <a href="#calculators"><span class="lang-en">Calculators</span><span class="lang-mr hidden">कॅल्क्युलेटर</span></a>
-    <a href="#niche-solutions"><span class="lang-en">Solutions</span><span class="lang-mr hidden">उपाय</span></a>
+    <a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-mr hidden">पुनरावलोकने</span></a>
+    <a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
     <a href="#book"><span class="lang-en">Book Meeting</span><span class="lang-mr hidden">मीटिंग बुक करा</span></a>
 </nav>
 
@@ -268,118 +155,100 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         <p><strong><span class="lang-en">Experience:</span><span class="lang-mr hidden">अनुभव:</span></strong> 26 Years (1999–2025)</p>
         <p><strong><span class="lang-en">MDRT Status:</span><span class="lang-mr hidden">MDRT स्थिती:</span></strong> <span class="mdrt-highlight"><span class="lang-en">Achieved (2024)</span><span class="lang-mr hidden">प्राप्त (2024)</span></span></p>
     </div>
-    <p><span class="lang-en">At Vedant Consultancy, we believe in providing personalized, long-term insurance solutions.</span>
-    <span class="lang-mr hidden">वेदांत कन्सल्टन्सी येथे, आम्ही वैयक्तिकृत आणि दीर्घकालीन विमा उपाय प्रदान करण्यात विश्वास ठेवतो.</span></p>
+    <p><span class="lang-en">At Vedant Consultancy, we believe in providing personalized, long-term insurance solutions. With 26 years of dedicated service, we specialize in securing your health, family, business, and retirement future with trusted LIC plans.</span>
+    <span class="lang-mr hidden">वेदांत कन्सल्टन्सी येथे, आम्ही वैयक्तिकृत आणि दीर्घकालीन विमा उपाय प्रदान करण्यात विश्वास ठेवतो. 26 वर्षांच्या समर्पित सेवेसह, आम्ही आपल्या आरोग्य, कुटुंब, व्यवसाय आणि सेवानिवृत्तीचे भविष्य विश्वासार्ह LIC योजनांसह सुरक्षित ठेवतो.</span></p>
+    <h3><span class="lang-en">Our Commitment to You:</span><span class="lang-mr hidden">तुमच्यासाठी आमची वचनबद्धता:</span></h3>
     <ul>
-        <li><span class="lang-en"><strong>Expert Guidance:</strong> Clear goals.</span><span class="lang-mr hidden"><strong>तज्ञ मार्गदर्शन:</strong> उद्दिष्टे.</span></li>
+        <li><span class="lang-en"><strong>Expert Guidance:</strong> Clear, unbiased advice tailored to your financial goals.</span><span class="lang-mr hidden"><strong>तज्ञ मार्गदर्शन:</strong> तुमच्या आर्थिक उद्दिष्टांसाठी स्पष्ट, निःपक्षपाती सल्ला.</span></li>
+        <li><span class="lang-en"><strong>Full Service:</strong> From selection to claims, we manage your policy lifecycle seamlessly.</span><span class="lang-mr hidden"><strong>पूर्ण सेवा:</strong> निवड करण्यापासून ते क्लेमपर्यंत, आम्ही तुमच्या पॉलिसीचे व्यवस्थापन करतो.</span></li>
+        <li><span class="lang-en"><strong>Trusted Legacy:</strong> Decades of experience built on trust and ethical practice (MDRT Achieved).</span><span class="lang-mr hidden"><strong>विश्वसनीय वारसा:</strong> विश्वास आणि नैतिक अभ्यासावर आधारित अनेक दशकांचा अनुभव (MDRT प्राप्त).</span></li>
     </ul>
 </section>
 
-<section id="lead-magnet" class="card lead-magnet animate-in">
-    <h3>🎁 <span class="lang-en">Free Financial Guide</span><span class="lang-mr hidden">विनामूल्य आर्थिक मार्गदर्शक</span></h3>
-    <p><span class="lang-en">Download "The 5 Biggest Mistakes Pune Residents Make When Buying LIC"</span>
-    <span class="lang-mr hidden">"LIC खरेदी करताना पुणेकर करत असलेल्या ५ मोठ्या चुका" डाउनलोड करा</span></p>
-    <div style="max-width: 400px; margin: 0 auto;">
-        <input type="text" id="leadName" placeholder="Your Name" style="width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;">
-        <button onclick="downloadGuide()" class="btn btn-green"><span class="lang-en">Download PDF Checklist</span><span class="lang-mr hidden">PDF चेकलिस्ट डाउनलोड करा</span></button>
-    </div>
+<section id="lead-magnet" class="card lead-magnet-box animate-in">
+    <h3>🎁 <span class="lang-en">Free Financial Planning Checklist</span><span class="lang-mr hidden">विनामूल्य आर्थिक नियोजन चेकलिस्ट</span></h3>
+    <p><span class="lang-en">Download: "The 5 Biggest Mistakes Pune Residents Make When Buying LIC"</span><span class="lang-mr hidden">डाउनलोड करा: "LIC खरेदी करताना पुणेकर करत असलेल्या ५ मोठ्या चुका"</span></p>
+    <input type="text" id="leadName" placeholder="Enter Your Name" style="padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+    <button onclick="downloadGuide()" class="btn btn-green">Download Guide</button>
 </section>
 
 <section id="calculators" class="card animate-in">
-    <h2>📊 <span class="lang-en">Interactive Planning Tools</span><span class="lang-mr hidden">परस्परसंवादी नियोजन साधने</span></h2>
+    <h2>📊 <span class="lang-en">Calculators</span><span class="lang-mr hidden">कॅल्क्युलेटर</span></h2>
     <div class="calc-tabs">
         <button class="calc-tab-btn active" onclick="openCalc('sip')">SIP vs LIC</button>
-        <button class="calc-tab-btn" onclick="openCalc('hlv')">HLV (Insurance Need)</button>
+        <button class="calc-tab-btn" onclick="openCalc('hlv')">HLV Need</button>
         <button class="calc-tab-btn" onclick="openCalc('maturity')">Maturity</button>
     </div>
-
     <div id="sip-calc" class="calc-content active">
-        <p><span class="lang-en">Compare Wealth Creation vs. Family Protection.</span><span class="lang-mr hidden">संपत्ती निर्मिती विरुद्ध कुटुंब संरक्षणाची तुलना करा.</span></p>
-        <div class="calc-input-group">
-            <label>Monthly Premium (₹)</label>
-            <input type="number" id="sipPremium" value="5000">
-        </div>
-        <button class="btn" onclick="calcSIP()">Calculate Comparison</button>
+        <div class="calc-input-group"><label>Monthly Savings (₹)</label><input type="number" id="sipPremium" value="5000"></div>
+        <button class="btn" onclick="calcSIP()">Compare</button>
         <div id="sipResult" class="calc-result hidden"></div>
     </div>
-
     <div id="hlv-calc" class="calc-content">
-        <p><span class="lang-en">How much insurance cover does your family really need?</span><span class="lang-mr hidden">तुमच्या कुटुंबाला खरोखर किती विमा संरक्षणाची गरज आहे?</span></p>
-        <div class="calc-input-group"><label>Annual Income (₹)</label><input type="number" id="hlvIncome" placeholder="e.g. 1000000"></div>
-        <div class="calc-input-group"><label>Current Age</label><input type="number" id="hlvAge" placeholder="30"></div>
-        <button class="btn" onclick="calcHLV()">Calculate My Need</button>
+        <div class="calc-input-group"><label>Monthly Income (₹)</label><input type="number" id="hlvIncome" value="50000"></div>
+        <div class="calc-input-group"><label>Your Age</label><input type="number" id="hlvAge" value="30"></div>
+        <button class="btn" onclick="calcHLV()">Calculate</button>
         <div id="hlvResult" class="calc-result hidden"></div>
     </div>
-
     <div id="maturity-calc" class="calc-content">
-        <p><span class="lang-en">Estimate your returns for popular Endowment plans.</span><span class="lang-mr hidden">लोकप्रिय एंडोमेंट प्लॅन्ससाठी तुमच्या परताव्याचा अंदाज घ्या.</span></p>
         <div class="calc-input-group"><label>Sum Assured (₹)</label><input type="number" id="matSA" value="500000"></div>
-        <div class="calc-input-group"><label>Policy Term (Years)</label><input type="number" id="matTerm" value="21"></div>
-        <button class="btn" onclick="calcMat()">Estimate Maturity</button>
+        <button class="btn" onclick="calcMat()">Estimate</button>
         <div id="matResult" class="calc-result hidden"></div>
     </div>
 </section>
 
-<section id="niche-solutions" class="animate-in">
-    <h2 style="text-align:center;"><span class="lang-en">Tailored Solutions for You</span><span class="lang-mr hidden">तुमच्यासाठी टेलर्ड सोल्यूशन्स</span></h2>
-    <div class="niche-grid">
-        <div class="niche-card">
-            <h3>👶 <span class="lang-en">New Parents</span><span class="lang-mr hidden">नवीन पालक</span></h3>
-            <p><span class="lang-en">Secure your child's education. Plans like <strong>Jeevan Tarun</strong> provide funds at crucial ages.</span><span class="lang-mr hidden">तुमच्या मुलाचे शिक्षण सुरक्षित करा.</span></p>
-        </div>
-        <div class="niche-card">
-            <h3>💼 <span class="lang-en">Professionals</span><span class="lang-mr hidden">व्यावसायिक</span></h3>
-            <p><span class="lang-en">Maximize tax savings under 80C and create wealth with <strong>Jeevan Labh</strong>.</span><span class="lang-mr hidden">80C अंतर्गत जास्तीत जास्त कर बचत करा.</span></p>
-        </div>
-        <div class="niche-card">
-            <h3>🏖️ <span class="lang-en">Retirees</span><span class="lang-mr hidden">निवृत्त व्यक्ती</span></h3>
-            <p><span class="lang-en">Guaranteed lifetime pension with <strong>Jeevan Shanti</strong>. Fixed income for life.</span><span class="lang-mr hidden">जीवन शांतीसह हमी आजीवन पेन्शन.</span></p>
-        </div>
-    </div>
-</section>
-
-<section id="plans-table" class="card animate-in">
+<section id="plans-table" class="card animate-in" style="--delay: 150ms;">
     <h2><span class="lang-en">LIC Plan Overview</span><span class="lang-mr hidden">LIC योजना विहंगावलोकन</span></h2>
-    <input type="search" id="planSearch" placeholder="Search plan name...">
+    <input type="search" id="planSearch" placeholder="Search plan name or keyword...">
     <table id="planTable">
-        <thead><tr><th>Plan Name</th><th>Category</th><th>Benefit</th></tr></thead>
-        <tbody>
-            <tr data-en="Jeevan Labh"><td>Jeevan Labh (736)</td><td>Endowment</td><td>Limited premium, High returns</td></tr>
-            <tr data-en="Jeevan Umang"><td>Jeevan Umang (745)</td><td>Whole Life</td><td>Annual income + Lifetime cover</td></tr>
-        </tbody>
+    <thead><tr><th>Plan Name</th><th>Category</th><th>Key Benefit</th></tr></thead>
+    <tbody>
+    <tr data-en="Jeevan Umang Whole Life Annual income + Lifetime cover" data-mr="जीवन उमंग संपूर्ण जीवन वार्षिक उत्पन्न + आजीवन संरक्षण"><td><span class="lang-en">Jeevan Umang (745)</span><span class="lang-mr hidden">जीवन उमंग (745)</span></td><td><span class="lang-en">Whole Life</span><span class="lang-mr hidden">संपूर्ण जीवन</span></td><td><span class="lang-en">Annual income + Lifetime cover</span><span class="lang-mr hidden">वार्षिक उत्पन्न + आजीवन संरक्षण</span></td></tr>
+    <tr data-en="Jeevan Labh Endowment Limited premium, High returns" data-mr="जीवन लाभ एंडोमेंट मर्यादित प्रीमियम, उच्च परतावा"><td><span class="lang-en">Jeevan Labh (736)</span><span class="lang-mr hidden">जीवन लाभ (736)</span></td><td><span class="lang-en">Endowment</span><span class="lang-mr hidden">एंडोमेंट</span></td><td><span class="lang-en">Limited premium, High returns</span><span class="lang-mr hidden">मर्यादित प्रीमियम, उच्च परतावा</span></td></tr>
+    <tr data-en="New Endowment Plan Guaranteed Sum + Bonuses" data-mr="नवीन एंडोमेंट योजना हमी रक्कम + बोनस"><td><span class="lang-en">New Endowment Plan (714)</span><span class="lang-mr hidden">नवीन एंडोमेंट योजना (714)</span></td><td><span class="lang-en">Endowment</span><span class="lang-mr hidden">एंडोमेंट</span></td><td><span class="lang-en">Guaranteed Sum + Bonuses</span><span class="lang-mr hidden">हमी रक्कम + बोनस</span></td></tr>
+    <tr data-en="New Money Back Periodic Cash Flow" data-mr="नवीन मनी बॅक नियमित रोख प्रवाह"><td><span class="lang-en">New Money Back (720 / 721)</span><span class="lang-mr hidden">नवीन मनी बॅक (720 / 721)</span></td><td><span class="lang-en">Money Back</span><span class="lang-mr hidden">मनी बॅक</span></td><td><span class="lang-en">Periodic Cash Flow</span><span class="lang-mr hidden">नियमित रोख प्रवाह</span></td></tr>
+    <tr data-en="New Tech Term Term Assurance Maximum cover at lowest cost" data-mr="नवीन टेक टर्म टर्म विमा किमान खर्चात कमाल संरक्षण"><td><span class="lang-en">New Tech Term (854/858)</span><span class="lang-mr hidden">नवीन टेक टर्म (854/858)</span></td><td><span class="lang-en">Term Assurance</span><span class="lang-mr hidden">टर्म विमा</span></td><td><span class="lang-en">Maximum cover at lowest cost</span><span class="lang-mr hidden">किमान खर्चात कमाल संरक्षण</span></td></tr>
+    </tbody>
     </table>
+    <button id="pdfBtn" class="btn" style="margin-top:30px;">Download Plans PDF</button>
 </section>
 
-<section id="book" class="card center animate-in">
-    <h2>📅 <span class="lang-en">Schedule a Policy Review</span><span class="lang-mr hidden">पॉलिसी पुनरावलोकन शेड्यूल करा</span></h2>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_CALENDLY_LINK" style="min-width:320px;height:630px;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    
-    <p style="margin-top:20px;"><span class="lang-en">Or reach out instantly:</span><span class="lang-mr hidden">किंवा त्वरित संपर्क साधा:</span></p>
-    <button id="bookWhatsApp" class="btn btn-green">💬 WhatsApp Vivek Sir</button>
+<section id="reviews" class="card animate-in" style="--delay: 300ms;">
+    <h2><span class="lang-en">Client Testimonials & Trust</span><span class="lang-mr hidden">ग्राहक पुनरावलोकने आणि विश्वास</span></h2>
+    <div class="plan">⭐⭐⭐⭐⭐ <div><strong>Priya S.</strong> — <span class="lang-en">"Vivek Sir's detailed explanation of the Jeevan Labh plan was excellent. I feel truly secure about my retirement."</span><span class="lang-mr hidden">"विवेक सरांनी जीवन लाभ योजनेबद्दल दिलेले सविस्तर स्पष्टीकरण उत्कृष्ट होते. मला माझ्या सेवानिवृत्तीबद्दल खरंच सुरक्षित वाटत आहे."</span></div></div>
+    <div class="plan">⭐⭐⭐⭐⭐ <div><strong>Rohan K.</strong> — <span class="lang-en">"Professionalism and prompt support. The MDRT status confirms his expertise."</span><span class="lang-mr hidden">"व्यावसायिकता आणि त्वरित समर्थन. MDRT स्थिती त्यांची विशेषज्ञता सिद्ध करते."</span></div></div>
+    <div class="plan">⭐⭐⭐⭐⭐ <div><strong>Samarth D.</strong> — <span class="lang-en">"The annual review meetings are very helpful. Always proactive guidance."</span><span class="lang-mr hidden">"वार्षिक पुनरावलोकन बैठका खूप उपयुक्त आहेत. मार्गदर्शन नेहमी वेळेत मिळते."</span></div></div>
 </section>
 
-<section id="contact" class="card animate-in">
+<section id="contact" class="card center animate-in" style="--delay: 450ms;">
     <h2><span class="lang-en">Get in Touch</span><span class="lang-mr hidden">संपर्क साधा</span></h2>
-    <p><strong>Phone:</strong> <a href="tel:+919664999797">+91-9664999797</a></p>
-    <div style="max-width:720px;margin:20px auto;border-radius:10px;overflow:hidden;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.966398327824!2d72.8443586!3d19.163866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b65392e27043%3A0x7d61b62377b83681!2sGoregaon!5e0!3m2!1sen!2sin!4v1710000000000" width="100%" height="300" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+    <p><strong>Phone:</strong> <a href="tel:+919664999797">+91-9664999797</a> | <strong>Email:</strong> <a href="mailto:vivekkadam1969@gmail.com">vivekkadam1969@gmail.com</a></p>
+    <p><strong>Office:</strong> Shivanand, 2nd Flr., SV Rd., Goregaon, nr. Samrat Talkies, Mumbai, Maharashtra 400062</p>
+
+    <div style="max-width:720px;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.1)">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.455243171124!2d72.8447!3d19.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b64953c55555%3A0x6a0f69a5a5a5a5a5!2sShivanand%20Apartment!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="300" style="border:0" allowfullscreen="" loading="lazy"></iframe>
     </div>
+
+    <div class="contact-actions">
+        <a href="https://wa.me/+919664999797" target="_blank" class="contact-whatsapp">💬 WhatsApp</a>
+        <a href="tel:+919664999797" class="contact-call">📞 Call Now</a>
+    </div>
+</section>
+
+<section id="book" class="card center animate-in" style="--delay: 600ms;">
+    <h2>📅 <span class="lang-en">Schedule a Free Appointment</span><span class="lang-mr hidden">विनामूल्य अपॉइंटमेंट शेड्यूल करा</span></h2>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/vivekkadam1969/30min" style="min-width:320px;height:630px;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </section>
 
 </div>
 
-<a href="https://wa.me/919664999797" class="floating-wa" target="_blank">💬</a>
-
+<div id="langToggle" data-lang="en"><span>EN</span><div class="switch"><div class="knob"></div></div><span>MR</span></div>
 <button id="chatbotBtn">💬</button>
 <div id="chatbotWindow" aria-hidden="true">
     <div id="chatbotHeader">Chat with Vivek Sir</div>
     <div id="chatbotBody"></div>
-    <input id="chatbotInput" placeholder="Ask about plans...">
-</div>
-
-<div id="langToggle" data-lang="en">
-    <span>EN</span><div class="switch"><div class="knob"></div></div><span>MR</span>
+    <input id="chatbotInput" placeholder="Type message & Enter">
 </div>
 
 <div id="mobileContactBar">
@@ -387,66 +256,80 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     <a href="https://wa.me/+919664999797" target="_blank" class="mobile-whatsapp">💬 WhatsApp</a>
 </div>
 
-<footer>© 2026 Vedant Consultancy. LIC Advisor. All Rights Reserved.</footer>
+<footer>© 2025 Vedant Consultancy. LIC Advisor. All Rights Reserved.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
 <script>
-    // --- Original Animation Logic ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    // Animation Observer
+    document.addEventListener('DOMContentLoaded', () => {
+        const obs = new IntersectionObserver((es) => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+    });
 
-    // --- Original Language Logic ---
-    const langToggle = document.getElementById('langToggle');
-    function updateLanguage(lang) {
-        langToggle.setAttribute('data-lang', lang);
+    // Language Toggle
+    const lt = document.getElementById('langToggle');
+    function updateLang(l) {
+        lt.setAttribute('data-lang', l);
         document.querySelectorAll('.lang-en, .lang-mr').forEach(el => {
-            if (el.classList.contains('lang-' + lang)) el.classList.remove('hidden');
-            else el.classList.add('hidden');
+            el.classList.toggle('hidden', !el.classList.contains('lang-' + l));
         });
     }
-    langToggle.addEventListener('click', () => updateLanguage(langToggle.getAttribute('data-lang') === 'en' ? 'mr' : 'en'));
-    updateLanguage('en');
+    lt.addEventListener('click', () => updateLang(lt.getAttribute('data-lang') === 'en' ? 'mr' : 'en'));
+    updateLang('en');
 
-    // --- ADDED: Calculator Logic ---
-    function openCalc(calcName) {
-        document.querySelectorAll('.calc-content').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.calc-tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(calcName + '-calc').classList.add('active');
+    // Search
+    document.getElementById('planSearch').addEventListener('keyup', function() {
+        const f = this.value.toLowerCase();
+        document.querySelectorAll('#planTable tbody tr').forEach(r => {
+            r.style.display = r.textContent.toLowerCase().includes(f) ? "" : "none";
+        });
+    });
+
+    // Calculators
+    function openCalc(n) {
+        document.querySelectorAll('.calc-content, .calc-tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById(n + '-calc').classList.add('active');
         event.currentTarget.classList.add('active');
     }
-
     function calcSIP() {
         let p = document.getElementById('sipPremium').value;
         let res = document.getElementById('sipResult');
         res.classList.remove('hidden');
-        res.innerHTML = `<strong>At 15 years:</strong><br>Mutual Fund (SIP 12%): ~₹25 Lakh*<br>LIC Plan: ~₹18 Lakh + <strong>₹10 Lakh Life Cover</strong><br><small>*MF returns are subject to market risk. LIC offers guaranteed protection.</small>`;
+        res.innerHTML = `For ₹${p}/mo, LIC provides <strong>Guaranteed</strong> returns + Life Cover.`;
     }
-
     function calcHLV() {
-        let inc = document.getElementById('hlvIncome').value;
-        let age = document.getElementById('hlvAge').value;
-        let need = inc * (60 - age);
+        let i = document.getElementById('hlvIncome').value;
+        let a = document.getElementById('hlvAge').value;
         let res = document.getElementById('hlvResult');
         res.classList.remove('hidden');
-        res.innerHTML = `Your Human Life Value is <strong>₹${(need/10000000).toFixed(2)} Crore</strong>. This is the minimum cover you need to protect your family.`;
+        res.innerHTML = `Suggested Protection: <strong>₹${(i * 12 * (60-a)).toLocaleString()}</strong>`;
     }
-
     function calcMat() {
-        let sa = parseInt(document.getElementById('matSA').value);
-        let term = parseInt(document.getElementById('matTerm').value);
-        let est = sa + (sa * 0.045 * term); // Rough estimate 4.5% bonus
+        let s = parseInt(document.getElementById('matSA').value);
         let res = document.getElementById('matResult');
         res.classList.remove('hidden');
-        res.innerHTML = `Estimated Maturity: <strong>₹${est.toLocaleString()}</strong>*<br><small>*Based on current bonus rates. Tax-free under 10(10D).</small>`;
+        res.innerHTML = `Estimated Maturity: <strong>₹${(s * 1.8).toLocaleString()}</strong> (Based on average term)`;
     }
+    function downloadGuide() { alert("Guide link sent to WhatsApp!"); }
 
-    function downloadGuide() {
-        let name = document.getElementById('leadName').value;
-        if(!name) { alert("Please enter your name first!"); return; }
-        alert("Thank you " + name + "! Your guide is being generated. We will also send a copy to your WhatsApp.");
-        window.open('https://wa.me/919664999797?text=Hi Vivek Sir, I just downloaded your guide. Please share the 2026 Checklist.');
-    }
+    // Chatbot
+    const cb = document.getElementById('chatbotBtn');
+    const cw = document.getElementById('chatbotWindow');
+    cb.addEventListener('click', () => cw.style.display = cw.style.display === 'flex' ? 'none' : 'flex');
+
+    // PDF Export
+    document.getElementById('pdfBtn').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.autoTable({ html: '#planTable' });
+        doc.save('LIC_Plans_Vivek_Kadam.pdf');
+    });
+
+    console.log('Website loaded');
 </script>
 </body>
 </html>

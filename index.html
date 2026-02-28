@@ -3,284 +3,226 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LIC Advisor - Vivek Kadam | Vedant Consultancy</title>
-    <meta name="description" content="LIC Advisor Vivek Kadam | Vedant Consultancy. Trusted Life Insurance and Financial Planning since 1999. MDRT recognized.">
-    
-    <link rel="icon" type="image/webp" href="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Vivek Kadam | Vedant Consultancy - Expert LIC Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand: #004aad; --brand-dark: #002c70; --accent: #25D366; 
-            --gold: #FFD700; --trust-gold: #e2b700; --bg-light: #f7f9fc;
-            --card-white: rgba(255, 255, 255, 0.95); --shadow-heavy: 0 10px 30px rgba(0,0,0,0.15);
+        :root { 
+            --brand: #003a8f; --brand-light: #0052cc; --accent: #25D366; 
+            --gold: #d4af37; --bg: #fdfdfd; --text: #1e293b; 
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); padding-bottom: 80px; overflow-x: hidden; color: #333; }
-        .hidden { display: none !important; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; }
 
-        /* --- MDRT FLOATING BADGE (From Code 1) --- */
-        .mdrt-floating-badge {
-            position: fixed; top: 20px; right: 20px; width: 85px; height: 85px;
-            z-index: 9999; background: #fff; border-radius: 50%; padding: 8px;
-            box-shadow: 0 0 20px rgba(226, 183, 0, 0.6); border: 3px solid var(--trust-gold);
-            cursor: pointer; animation: pulse-gold 2s infinite;
-        }
-        @keyframes pulse-gold {
-            0% { transform: scale(1); } 70% { transform: scale(1.05); } 100% { transform: scale(1); }
-        }
+        /* Navigation */
+        nav { background: white; padding: 20px; display: flex; justify-content: center; gap: 25px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav a { text-decoration: none; color: var(--brand); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- LANGUAGE TOGGLE (From Code 2 Style) --- */
-        #langToggle { 
-            position: fixed; top: 20px; left: 20px; z-index: 10000; 
-            display: flex; align-items: center; background: #fff; padding: 8px 15px; 
-            border-radius: 30px; box-shadow: var(--shadow-heavy); cursor: pointer; 
-            font-weight: 800; border: 2px solid var(--brand);
-        }
-        .switch { width: 40px; height: 20px; background-color: #ccc; border-radius: 10px; position: relative; margin: 0 10px; }
-        .knob { width: 18px; height: 18px; background-color: var(--brand); border-radius: 50%; position: absolute; top: 1px; left: 1px; transition: 0.3s; }
-        #langToggle[data-lang="mr"] .knob { transform: translateX(20px); }
-
-        /* --- HEADER & 3D PROFILE (From Code 1) --- */
-        header { background: linear-gradient(135deg, var(--brand), #003a8f); color: #fff; padding: 100px 20px 60px; text-align: center; }
-        .profile-container { width: 160px; height: 160px; margin: 30px auto 0; perspective: 1000px; }
+        /* Hero Header */
+        header { background: linear-gradient(145deg, var(--brand), #001e4d); color: white; text-align: center; padding: 80px 20px; position: relative; }
+        .profile-container { width: 160px; height: 160px; margin: 0 auto 20px; perspective: 1000px; cursor: pointer; }
         .profile-card-inner { position: relative; width: 100%; height: 100%; transition: 0.8s; transform-style: preserve-3d; }
         .flipped { transform: rotateY(180deg); }
-        .profile-front, .profile-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 50%; border: 5px solid #fff; overflow: hidden; background: #fff; }
+        .profile-front, .profile-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 50%; border: 5px solid rgba(255,255,255,0.2); overflow: hidden; }
         .profile-back { transform: rotateY(180deg); }
         .profile-img-el { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 32px; font-weight: 800; margin-bottom: 5px; }
+        .gold-badge { color: var(--gold); font-size: 14px; font-weight: 700; letter-spacing: 2px; }
 
-        /* --- CONTENT & CARDS (Code 2 Content) --- */
-        nav { background: var(--card-white); backdrop-filter: blur(10px); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { color: var(--brand-dark); margin: 0 12px; font-weight: 700; text-transform: uppercase; font-size: 13px; text-decoration: none; }
-        
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .card { background: #fff; border-radius: 20px; padding: 35px; margin-bottom: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .animate-in { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-        .animate-in.visible { opacity: 1; transform: translateY(0); }
+        /* Sections */
+        .section { max-width: 900px; margin: 60px auto; padding: 0 25px; text-align: center; }
+        .card { background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; }
+        h2 { font-size: 26px; color: var(--brand); margin-bottom: 20px; font-weight: 800; }
+        p { color: #64748b; font-size: 16px; line-height: 1.8; }
 
-        /* --- CALCULATORS (From Code 2) --- */
-        .calc-tabs { display: flex; border-bottom: 2px solid #ddd; margin-bottom: 20px; gap: 10px; }
-        .calc-tab-btn { padding: 10px 15px; cursor: pointer; border: none; background: none; font-weight: 700; color: #666; font-family: inherit; }
-        .calc-tab-btn.active { color: var(--brand); border-bottom: 3px solid var(--brand); }
-        .calc-content { display: none; padding: 10px 0; }
-        .calc-content.active { display: block; }
-        .calc-input-group { margin-bottom: 15px; }
-        .calc-input-group label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .calc-input-group input { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #eee; outline: none; }
-        .btn { display: inline-block; padding: 15px 30px; border-radius: 50px; background: var(--brand); color: #fff; font-weight: 700; border: none; cursor: pointer; text-decoration: none; text-align: center; }
+        /* AI Call-to-Action Card */
+        .ai-banner { background: linear-gradient(135deg, #f0f7ff, #ffffff); border: 2px dashed var(--brand-light); }
+        .ai-btn-large { display: inline-block; margin-top: 20px; padding: 15px 40px; background: var(--brand); color: white; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; cursor: pointer; border: none; }
+        .ai-btn-large:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 58, 143, 0.2); }
 
-        /* --- CHATBOT (Unified) --- */
-        #chatbotBtn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: var(--brand); color: #fff; border-radius: 50%; border: none; font-size: 24px; cursor: pointer; z-index: 5001; box-shadow: var(--shadow-heavy); }
-        #chatbotWindow { position: fixed; bottom: 90px; right: 20px; width: 320px; height: 450px; background: #fff; border-radius: 20px; box-shadow: var(--shadow-heavy); display: none; flex-direction: column; overflow: hidden; z-index: 5000; border: 1px solid #eee; }
-        #chatbotBody { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .msg-bot { background: #f0f2f5; padding: 10px; border-radius: 10px; align-self: flex-start; max-width: 85%; font-size: 14px; }
-        .msg-user { background: var(--brand); color: #fff; padding: 10px; border-radius: 10px; align-self: flex-end; max-width: 85%; font-size: 14px; }
+        /* Maps / Contact */
+        .map-container { border-radius: 20px; overflow: hidden; margin-top: 20px; border: 1px solid #e2e8f0; height: 300px; }
+        .contact-info { margin-top: 20px; font-weight: 600; color: var(--brand); }
 
-        /* --- MOBILE UX (From Code 1) --- */
-        #mobileContactBar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 12px; z-index: 4000; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); }
-        #mobileContactBar a { flex: 1; text-align: center; padding: 12px; border-radius: 10px; color: white; font-weight: 800; text-decoration: none; }
-
-        @media (max-width: 768px) {
-            #mobileContactBar { display: flex; }
-            .mdrt-floating-badge { top: 85px; width: 65px; height: 65px; right: 10px; }
-            #chatbotBtn { bottom: 85px; }
-            #chatbotWindow { bottom: 155px; width: 90%; right: 5%; }
-            header h1 { font-size: 1.8rem; }
-            nav { overflow-x: auto; white-space: nowrap; }
+        /* GLOWING CHATBOT */
+        .chat-container { position: fixed; bottom: 100px; right: 25px; z-index: 9999; }
+        #chatbotBtn { 
+            width: 70px; height: 70px; background: var(--brand); color: white; border-radius: 50%; border: none; 
+            font-size: 32px; cursor: pointer; box-shadow: 0 0 0 0 rgba(0, 58, 143, 0.7);
+            animation: pulse-glow 2s infinite; display: flex; align-items: center; justify-content: center;
         }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(0, 58, 143, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 58, 143, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 58, 143, 0); }
+        }
+        #chatbotWindow { 
+            position: fixed; bottom: 180px; right: 25px; width: 360px; height: 550px; 
+            background: white; border-radius: 25px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); 
+            display: none; flex-direction: column; overflow: hidden; z-index: 9998; border: 1px solid #f1f5f9;
+        }
+        #chatBody { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; background: #f8fafc; }
+        .msg { padding: 12px 16px; border-radius: 18px; font-size: 14px; max-width: 85%; line-height: 1.5; }
+        .msg-bot { background: white; color: var(--text); align-self: flex-start; border: 1px solid #e2e8f0; }
+        .msg-user { background: var(--brand); color: white; align-self: flex-end; }
+        
+        .form-area { padding: 30px; display: flex; flex-direction: column; gap: 15px; }
+        input { padding: 15px; border: 1px solid #e2e8f0; border-radius: 15px; outline: none; font-family: inherit; }
+        #finishBtn { display: none; margin: 10px 20px; background: var(--accent); color: white; padding: 12px; border-radius: 15px; text-align: center; font-weight: 700; text-decoration: none; }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
-        th { background: var(--brand-dark); color: #fff; }
+        /* Footer Fixed Bar */
+        .footer-bar { position: fixed; bottom: 0; width: 100%; background: white; display: flex; padding: 15px; gap: 15px; box-shadow: 0 -10px 20px rgba(0,0,0,0.05); z-index: 5000; }
+        .footer-bar a { flex: 1; text-align: center; padding: 14px; border-radius: 15px; text-decoration: none; color: white; font-weight: 700; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <div class="mdrt-floating-badge" onclick="window.location.href='#about'">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A7kL-K-x3M8U9y_L9j1nK5tSjR9_tW5hCg&s" alt="MDRT Gold" style="width:100%">
-    </div>
-
-    <div id="langToggle" data-lang="en" onclick="toggleLanguage()">
-        <span>EN</span>
-        <div class="switch"><div class="knob"></div></div>
-        <span>मराठी</span>
-    </div>
-
-    <header>
-        <h1>
-            <span class="lang-en">LIC Advisor - Vivek Kadam</span>
-            <span class="lang-mr hidden">विवेक कदम - एलआयसी सल्लागार</span>
-        </h1>
-        <p>
-            <span class="lang-en">Your Trusted Financial Partner Since 1999</span>
-            <span class="lang-mr hidden">आपला 1999 पासूनचा विश्वासू जीवन विमा साथी</span>
-        </p>
-        
-        <div class="profile-container">
-            <div class="profile-card-inner" id="profileCard">
-                <div class="profile-front">
-                    <img src="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg" class="profile-img-el" alt="Vedant Consultancy">
-                </div>
-                <div class="profile-back">
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" class="profile-img-el" alt="Vivek Kadam">
-                </div>
-            </div>
-        </div>
-    </header>
-
     <nav>
-        <a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">बद्दल</span></a>
-        <a href="#plans"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
-        <a href="#calculators"><span class="lang-en">Calculators</span><span class="lang-mr hidden">कॅल्क्युलेटर</span></a>
-        <a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
+        <a href="#about">About</a>
+        <a href="#ai-guide">AI Guidance</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <div class="container">
-        <section id="about" class="card animate-in">
-            <h2><span class="lang-en">26 Years of Dedicated Service</span><span class="lang-mr hidden">२६ वर्षांची समर्पित सेवा</span></h2>
-            <p style="margin: 15px 0;">
-                <span class="lang-en">At Vedant Consultancy, we specialize in securing your family's future with personalized LIC solutions. MDRT recognized professional expertise.</span>
-                <span class="lang-mr hidden">वेदांत कन्सल्टन्सीमध्ये, आम्ही वैयक्तिकृत एलआयसी उपायांसह तुमच्या कुटुंबाचे भविष्य सुरक्षित करण्यात तज्ञ आहोत.</span>
-            </p>
-            <ul style="list-style: none; line-height: 2;">
-                <li>✅ <span class="lang-en">Expert Financial Planning</span><span class="lang-mr hidden">तज्ञ आर्थिक नियोजन</span></li>
-                <li>✅ <span class="lang-en">Seamless Claim Assistance</span><span class="lang-mr hidden">विनासायास क्लेम सहाय्य</span></li>
-                <li>✅ <span class="lang-en">Trust of 5000+ Clients</span><span class="lang-mr hidden">५०००+ ग्राहकांचा विश्वास</span></li>
-            </ul>
-        </section>
+    <header>
+        <div class="profile-container" onclick="this.querySelector('.profile-card-inner').classList.toggle('flipped')">
+            <div class="profile-card-inner" id="profileCard">
+                <div class="profile-front"><img src="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg" class="profile-img-el"></div>
+                <div class="profile-back"><img src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" class="profile-img-el"></div>
+            </div>
+        </div>
+        <h1>Vivek Kadam</h1>
+        <div class="gold-badge">MDRT USA | VEDANT CONSULTANCY</div>
+    </header>
 
-        <section id="calculators" class="card animate-in">
-            <h2>📊 <span class="lang-en">Financial Tools</span><span class="lang-mr hidden">आर्थिक साधने</span></h2>
-            <div class="calc-tabs">
-                <button class="calc-tab-btn active" onclick="openCalc('maturity')">Maturity</button>
-                <button class="calc-tab-btn" onclick="openCalc('hlv')">HLV Need</button>
-            </div>
-            <div id="maturity-calc" class="calc-content active">
-                <div class="calc-input-group"><label>Sum Assured (₹)</label><input type="number" id="matSA" value="1000000"></div>
-                <button class="btn" onclick="calcMat()">Calculate Payout</button>
-                <div id="matRes" style="margin-top:15px; font-weight:700; color:var(--brand);"></div>
-            </div>
-            <div id="hlv-calc" class="calc-content">
-                <div class="calc-input-group"><label>Monthly Income (₹)</label><input type="number" id="hlvInc" value="50000"></div>
-                <button class="btn" onclick="calcHLV()">Calculate Insurance Need</button>
-                <div id="hlvRes" style="margin-top:15px; font-weight:700; color:var(--brand);"></div>
-            </div>
-        </section>
-
-        <section id="plans" class="card animate-in">
-            <h2><span class="lang-en">Popular LIC Plans</span><span class="lang-mr hidden">लोकप्रिय एलआयसी योजना</span></h2>
-            <div style="overflow-x:auto;">
-                <table>
-                    <thead><tr><th>Plan</th><th>Benefit</th></tr></thead>
-                    <tbody>
-                        <tr><td>Jeevan Umang</td><td>8% Lifetime Guaranteed Income</td></tr>
-                        <tr><td>Jeevan Labh</td><td>High Returns Savings Plan</td></tr>
-                        <tr><td>New Tech Term</td><td>Maximum Protection, Lowest Cost</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="contact" class="card animate-in">
-            <h2>📍 <span class="lang-en">Our Office</span><span class="lang-mr hidden">आमचे कार्यालय</span></h2>
-            <p>Shivanand, 2nd Floor, S.V Road, Goregaon (W), Mumbai - 400062</p>
-            <div style="width:100%; height:300px; border-radius:15px; overflow:hidden; margin-top:15px; border:1px solid #ddd;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.455243171124!2d72.8447!3d19.16!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b64953c55555%3A0x6a0f69a5a5a5a5a5!2sShivanand%20Apartment!5e0!3m2!1sen!2sin!4v1700000000000" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
-            </div>
-        </section>
+    <div class="section" id="about">
+        <div class="card">
+            <h2>Legacy of Trust</h2>
+            <p>Since 1999, Vivek Kadam has been a cornerstone of financial stability for over 5,000 families. As an MDRT USA qualifier, he combines global standards with personalized Indian care to protect your family's future.</p>
+        </div>
     </div>
 
-    <button id="chatbotBtn" onclick="toggleChat()">💬</button>
+    <div class="section" id="ai-guide">
+        <div class="card ai-banner">
+            <h2>Talk to our AI Assistant</h2>
+            <p>Get instant, 24/7 expert guidance on Jeevan Umang, Child Education, and Retirement plans. No waiting, just smart answers.</p>
+            <button class="ai-btn-large" onclick="toggleChat()">Start AI Consultation</button>
+        </div>
+    </div>
+
+    <div class="section" id="contact">
+        <div class="card">
+            <h2>Visit Our Office</h2>
+            <p>Come meet us for a face-to-face consultation. We are located at:</p>
+            <div class="contact-info">Mumbai, Maharashtra, India</div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120638.196342898!2d72.8028714!3d19.1099688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <button id="chatbotBtn" onclick="toggleChat()">🤖</button>
+    </div>
+
     <div id="chatbotWindow">
-        <div style="background:var(--brand); color:#fff; padding:15px; font-weight:800; display:flex; justify-content:space-between;">
-            <span>LIC Assistant</span><span onclick="toggleChat()" style="cursor:pointer;">×</span>
+        <div style="background:var(--brand); color:white; padding:20px; font-weight:800; display:flex; justify-content:space-between; align-items:center;">
+            <span>LIC AI Expert</span><span onclick="toggleChat()" style="cursor:pointer; font-size:24px;">×</span>
         </div>
-        <div id="chatbotBody">
-            <div class="msg-bot">Hello! How can I help you today? (Try asking about Umang or Labh plans)</div>
+        
+        <div id="leadForm" class="form-area">
+            <p style="font-size:14px; font-weight:600;">Let's get started. Who am I speaking with?</p>
+            <input type="text" id="uName" placeholder="Full Name">
+            <input type="tel" id="uPhone" placeholder="Mobile Number">
+            <button class="ai-btn-large" style="margin-top:0;" onclick="startChat()">Open Chat</button>
         </div>
-        <div style="padding:10px; display:flex; border-top:1px solid #eee;">
-            <input type="text" id="chatIn" placeholder="Type here..." style="margin:0; border:none; flex:1; outline:none;">
-            <button onclick="handleChat()" style="background:var(--brand); color:#fff; border:none; padding:10px; border-radius:5px; cursor:pointer;">➤</button>
+
+        <div id="chatUI" style="display:none; flex-direction:column; height:100%;">
+            <div id="chatBody"></div>
+            <a id="finishBtn" href="#" onclick="sendFinalWhatsApp()">✅ Chat with Vivek Sir on WhatsApp</a>
+            <div style="padding:15px; border-top:1px solid #f1f5f9; display:flex; background:white;">
+                <input type="text" id="chatIn" placeholder="Type your question..." style="flex:1; border:none;" onkeypress="if(event.key==='Enter') sendToAI()">
+                <button onclick="sendToAI()" style="background:none; border:none; color:var(--brand); font-weight:800; cursor:pointer; padding-left:10px;">SEND</button>
+            </div>
         </div>
     </div>
 
-    <div id="mobileContactBar">
-        <a href="tel:+919664999797" style="background:var(--brand);">CALL NOW</a>
+    <div class="footer-bar">
+        <a href="tel:+919664999797" style="background:var(--brand);">CALL OFFICE</a>
         <a href="https://wa.me/919664999797" style="background:var(--accent);">WHATSAPP</a>
     </div>
 
     <script>
-        // 1. Profile Flip Logic
-        window.onload = () => {
-            setTimeout(() => { document.getElementById('profileCard').classList.add('flipped'); }, 1000);
-        };
+        const P_URL = "https://eob9bni0orpz2pj.m.pipedream.net";
 
-        // 2. Language Logic (Code 2 Style)
-        function toggleLanguage() {
-            const current = document.getElementById('langToggle').getAttribute('data-lang');
-            const next = current === 'en' ? 'mr' : 'en';
-            document.getElementById('langToggle').setAttribute('data-lang', next);
+        window.onload = () => setTimeout(() => document.getElementById('profileCard').classList.add('flipped'), 1000);
+
+        function toggleChat() {
+            const w = document.getElementById('chatbotWindow');
+            w.style.display = (w.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function startChat() {
+            const name = document.getElementById('uName').value;
+            const phone = document.getElementById('uPhone').value;
+            if(!name || !phone) return alert("Please share your details to continue.");
             
-            document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', next === 'mr'));
-            document.querySelectorAll('.lang-mr').forEach(el => el.classList.toggle('hidden', next === 'en'));
+            localStorage.setItem('v_n', name);
+            localStorage.setItem('v_p', phone);
+
+            // Silent Email Alert via Pipedream
+            fetch(P_URL, { 
+                method: "POST", 
+                headers: {"Content-Type":"application/json"}, 
+                body: JSON.stringify({ name, phone, message: "VISITOR ALERT: Interested in AI Guidance" }) 
+            });
+
+            document.getElementById('leadForm').style.display = 'none';
+            document.getElementById('chatUI').style.display = 'flex';
+
+            const hour = new Date().getHours();
+            const sal = hour < 12 ? "Good Morning" : (hour < 17 ? "Good Afternoon" : "Good Evening");
+            addMsg(`${sal}, ${name}! Welcome to Vedant Consultancy. I am Vivek Kadam's AI assistant. With 26 years of experience and MDRT USA credentials, how can I help you secure your future today?`, 'bot');
         }
 
-        // 3. Calculator Logic (Code 2)
-        function openCalc(type) {
-            document.querySelectorAll('.calc-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.calc-tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(type + '-calc').classList.add('active');
-            event.currentTarget.classList.add('active');
+        async function sendToAI() {
+            const input = document.getElementById('chatIn');
+            const body = document.getElementById('chatBody');
+            const text = input.value.trim();
+            const name = localStorage.getItem('v_n');
+            const phone = localStorage.getItem('v_p');
+            if(!text) return;
+
+            addMsg(text, 'user');
+            input.value = "";
+            document.getElementById('finishBtn').style.display = 'block';
+
+            try {
+                const resp = await fetch(P_URL, {
+                    method: "POST",
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify({ name, phone, message: text })
+                });
+                const data = await resp.json();
+                addMsg(data.ai_reply, 'bot');
+            } catch (e) {
+                addMsg("I'm having a connection issue. Please connect with Vivek Sir on WhatsApp directly!", 'bot');
+            }
+            body.scrollTop = body.scrollHeight;
         }
 
-        function calcMat() {
-            let v = document.getElementById('matSA').value;
-            document.getElementById('matRes').innerText = "Est. Payout: ₹" + (v * 2.1).toLocaleString();
+        function sendFinalWhatsApp() {
+            const name = localStorage.getItem('v_n');
+            const phone = localStorage.getItem('v_p');
+            const msg = `Hi Vivek Sir, I am ${name} (${phone}). I have been using your AI assistant on your website and would like a personal consultation regarding LIC plans.`;
+            window.open(`https://wa.me/919664999797?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function calcHLV() {
-            let inc = document.getElementById('hlvInc').value;
-            document.getElementById('hlvRes').innerText = "Recommended Cover: ₹" + (inc * 12 * 15).toLocaleString();
+        function addMsg(t, s) {
+            const d = document.createElement('div');
+            d.className = `msg msg-${s}`;
+            d.innerText = t;
+            document.getElementById('chatBody').appendChild(d);
+            document.getElementById('chatBody').scrollTop = document.getElementById('chatBody').scrollHeight;
         }
-
-        // 4. Chatbot Logic (Auto-WhatsApp Integration)
-        function toggleChat() { 
-            let w = document.getElementById('chatbotWindow'); 
-            w.style.display = (w.style.display === 'flex') ? 'none' : 'flex'; 
-        }
-
-        function handleChat() {
-            let i = document.getElementById('chatIn'); 
-            let b = document.getElementById('chatbotBody');
-            if(!i.value) return;
-            
-            let uMsg = document.createElement('div'); uMsg.className='msg-user'; uMsg.textContent=i.value; b.appendChild(uMsg);
-            let txt = i.value.toLowerCase(); i.value = "";
-            
-            setTimeout(() => {
-                let r = "I have noted your query. Vivek Sir will contact you on WhatsApp shortly.";
-                if(txt.includes('umang')) r = "Jeevan Umang (745) offers 8% lifetime income. Should I book a call for you?";
-                if(txt.includes('labh')) r = "Jeevan Labh (736) is perfect for high-return savings. Should I send the brochure?";
-                
-                let bMsg = document.createElement('div'); bMsg.className='msg-bot'; bMsg.textContent=r; b.appendChild(bMsg);
-                b.scrollTop = b.scrollHeight;
-                
-                // If query is specific, open WhatsApp
-                if(!txt.includes('umang') && !txt.includes('labh')) {
-                    window.open('https://wa.me/919664999797?text=Hi Vivek Sir, I have a question: ' + txt);
-                }
-            }, 800);
-        }
-
-        // 5. Scroll Animations
-        const obs = new IntersectionObserver((es) => { 
-            es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); 
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>

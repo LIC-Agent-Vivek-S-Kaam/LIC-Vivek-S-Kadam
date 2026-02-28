@@ -5,191 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LIC Advisor - Vivek Kadam | Vedant Consultancy</title>
     
-    <meta name="description" content="LIC Advisor Vivek Kadam | Vedant Consultancy. Trusted Life Insurance and Financial Planning services since 1999. MDRT recognized.">
     <link rel="icon" type="image/webp" href="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --brand-primary: #004aad; 
-            --brand-dark: #002c70;
-            --whatsapp-green: #25D366; 
-            --gold-main: #FFD700; 
-            --trust-gold: #e2b700; 
-            --bg-light: #f7f9fc;
-            --card-white: rgba(255, 255, 255, 0.95);
-            --shadow-subtle: 0 4px 12px rgba(0,0,0,0.06);
-            --shadow-heavy: 0 10px 30px rgba(0,0,0,0.15);
-            --text-main: #333;
+            --brand-primary: #004aad; --brand-dark: #002c70; --whatsapp-green: #25D366; 
+            --gold-main: #FFD700; --trust-gold: #e2b700; --bg-light: #f7f9fc;
+            --card-white: rgba(255, 255, 255, 0.95); --shadow-heavy: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding-bottom: 80px;
-        }
-
-        a { text-decoration: none; transition: all 0.3s ease; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); padding-bottom: 80px; overflow-x: hidden; }
         .hidden { display: none !important; }
 
-        /* --- FLOATING MDRT BADGE --- */
+        /* --- CLASSIC SLIDING LANGUAGE SWITCHER --- */
+        #langSwitch {
+            position: fixed; top: 20px; left: 20px; z-index: 10000;
+            background: #fff; border-radius: 30px; padding: 5px;
+            display: flex; box-shadow: var(--shadow-heavy); border: 2px solid var(--brand-primary);
+        }
+        .lang-btn { padding: 8px 18px; border-radius: 25px; cursor: pointer; font-weight: 800; font-size: 12px; transition: 0.3s; }
+        .lang-btn.active { background: var(--brand-primary); color: #fff; }
+
+        /* --- MDRT BADGE --- */
         .mdrt-floating-badge {
-            position: fixed;
-            top: 25px;
-            right: 25px;
-            width: 90px;
-            height: 90px;
-            z-index: 9999;
-            background: #fff;
-            border-radius: 50%;
-            padding: 8px;
-            box-shadow: 0 0 20px rgba(226, 183, 0, 0.6);
-            border: 3px solid var(--trust-gold);
-            cursor: pointer;
-            animation: pulse-gold 2s infinite;
+            position: fixed; top: 20px; right: 20px; width: 85px; height: 85px;
+            z-index: 9999; background: #fff; border-radius: 50%; padding: 8px;
+            box-shadow: 0 0 20px rgba(226, 183, 0, 0.6); border: 3px solid var(--trust-gold);
+            cursor: pointer; animation: pulse-gold 2s infinite;
         }
-
         @keyframes pulse-gold {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(226, 183, 0, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(226, 183, 0, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(226, 183, 0, 0); }
+            0% { transform: scale(1); } 70% { transform: scale(1.05); } 100% { transform: scale(1); }
         }
 
-        .mdrt-floating-badge img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
-        .badge-label {
-            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            background: var(--brand-dark); color: white; font-size: 10px;
-            font-weight: 800; padding: 2px 8px; border-radius: 10px; white-space: nowrap;
-        }
-
-        /* --- HEADER & 3D PROFILE --- */
-        header {
-            background: linear-gradient(135deg, var(--brand-primary) 0%, #003a8f 100%);
-            color: #fff;
-            padding: 100px 20px 60px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        header h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 10px; }
-
-        .profile-container {
-            width: 150px; height: 150px; margin: 30px auto 0; perspective: 1000px;
-        }
-
-        .profile-card-inner {
-            position: relative; width: 100%; height: 100%; text-align: center;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
+        /* --- HEADER & 1-SEC 3D PFP --- */
+        header { background: linear-gradient(135deg, var(--brand-primary), #003a8f); color: #fff; padding: 100px 20px 60px; text-align: center; }
+        .profile-container { width: 160px; height: 160px; margin: 30px auto 0; perspective: 1000px; }
+        .profile-card-inner { position: relative; width: 100%; height: 100%; transition: 0.8s; transform-style: preserve-3d; }
         .flipped { transform: rotateY(180deg); }
-
-        .profile-front, .profile-back {
-            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
-            border-radius: 50%; border: 5px solid #fff; overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .profile-front { background: #fff; }
+        .profile-front, .profile-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 50%; border: 5px solid #fff; overflow: hidden; background: #fff; }
         .profile-back { transform: rotateY(180deg); }
         .profile-img-el { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- NAVIGATION --- */
-        nav {
-            background: var(--card-white); backdrop-filter: blur(10px);
-            padding: 15px; text-align: center; position: sticky; top: 0;
-            z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-
-        nav a { color: var(--brand-dark); margin: 0 15px; font-weight: 700; text-transform: uppercase; font-size: 14px; }
-        nav a:hover { color: var(--brand-primary); }
-
-        /* --- CONTENT --- */
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        .card {
-            background: var(--card-white); border-radius: 20px; padding: 40px;
-            margin-bottom: 40px; box-shadow: var(--shadow-subtle);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .animate-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        /* --- LAYOUT & CARDS --- */
+        nav { background: var(--card-white); backdrop-filter: blur(10px); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav a { color: var(--brand-dark); margin: 0 12px; font-weight: 700; text-transform: uppercase; font-size: 13px; text-decoration: none; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .card { background: #fff; border-radius: 20px; padding: 35px; margin-bottom: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .animate-in { opacity: 0; transform: translateY(30px); transition: 0.8s; }
         .animate-in.visible { opacity: 1; transform: translateY(0); }
 
-        .btn {
-            display: inline-block; padding: 16px 32px; border-radius: 50px;
-            background: linear-gradient(90deg, var(--brand-primary), #005a9d);
-            color: #fff; font-weight: 700; border: none; cursor: pointer;
-            text-align: center; transition: 0.3s;
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,74,173,0.3); }
-        .btn-green { background: linear-gradient(90deg, #25D366, #128C7E); width: 100%; }
+        .btn { display: inline-block; padding: 15px 30px; border-radius: 50px; background: var(--brand-primary); color: #fff; font-weight: 700; border: none; cursor: pointer; text-decoration: none; text-align: center; }
+        input { width: 100%; padding: 14px; margin-bottom: 12px; border-radius: 10px; border: 2px solid #eee; font-family: inherit; }
 
-        input { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 2px solid #eee; font-size: 16px; font-family: inherit; }
+        /* --- CHATBOT --- */
+        #chatbotBtn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: var(--brand-primary); color: #fff; border-radius: 50%; border: none; font-size: 24px; cursor: pointer; z-index: 5001; box-shadow: var(--shadow-heavy); }
+        #chatbotWindow { position: fixed; bottom: 90px; right: 20px; width: 320px; height: 450px; background: #fff; border-radius: 20px; box-shadow: var(--shadow-heavy); display: none; flex-direction: column; overflow: hidden; z-index: 5000; border: 1px solid #eee; }
+        #chatbotBody { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg-bot { background: #f0f2f5; padding: 10px; border-radius: 10px; align-self: flex-start; max-width: 85%; font-size: 14px; }
+        .msg-user { background: var(--brand-primary); color: #fff; padding: 10px; border-radius: 10px; align-self: flex-end; max-width: 85%; font-size: 14px; }
 
-        /* --- TABLE & CALCULATORS --- */
-        .table-wrapper { overflow-x: auto; border-radius: 10px; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; background: #fff; }
-        th { background: var(--brand-dark); color: #fff; padding: 18px; text-align: left; }
-        td { padding: 15px; border-bottom: 1px solid #eee; }
-
-        .calc-tabs { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #eee; }
-        .calc-tab-btn { padding: 12px 20px; background: none; border: none; font-weight: 700; cursor: pointer; color: #777; font-family: inherit; }
-        .calc-tab-btn.active { color: var(--brand-primary); border-bottom: 3px solid var(--brand-primary); }
-        .calc-result { background: #f0f7ff; padding: 20px; border-radius: 12px; margin-top: 20px; border-left: 6px solid var(--brand-primary); font-weight: 600; }
-
-        /* --- CHATBOT & LANG --- */
-        #langToggle {
-            position: fixed; bottom: 20px; right: 20px; z-index: 5000; background: #fff;
-            padding: 12px 20px; border-radius: 50px; box-shadow: var(--shadow-heavy);
-            cursor: pointer; font-weight: 800; border: 2px solid var(--brand-primary);
-        }
-
-        #chatbotBtn {
-            position: fixed; bottom: 20px; left: 20px; width: 65px; height: 65px;
-            background: var(--brand-primary); color: white; border: none;
-            border-radius: 50%; font-size: 30px; cursor: pointer; z-index: 5001;
-            box-shadow: var(--shadow-heavy);
-        }
-
-        #chatbotWindow {
-            position: fixed; bottom: 95px; left: 20px; width: 350px; height: 500px;
-            background: #fff; border-radius: 20px; box-shadow: var(--shadow-heavy);
-            display: none; flex-direction: column; overflow: hidden; z-index: 5000;
-        }
-
-        .msg-bot { background: #f0f2f5; align-self: flex-start; padding: 10px; border-radius: 10px; margin: 5px 0; max-width: 80%; font-size: 14px; }
-        .msg-user { background: var(--brand-primary); color: white; align-self: flex-end; padding: 10px; border-radius: 10px; margin: 5px 0; max-width: 80%; font-size: 14px; }
-
-        #mobileContactBar {
-            display: none; position: fixed; bottom: 0; left: 0; width: 100%;
-            background: #fff; padding: 12px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-            z-index: 4000; gap: 15px;
-        }
-
-        #mobileContactBar a { flex: 1; text-align: center; padding: 12px; border-radius: 10px; color: white; font-weight: 800; }
+        #mobileContactBar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; padding: 12px; z-index: 4000; gap: 10px; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); }
+        #mobileContactBar a { flex: 1; text-align: center; padding: 12px; border-radius: 10px; color: white; font-weight: 800; text-decoration: none; }
 
         @media (max-width: 768px) {
             #mobileContactBar { display: flex; }
-            header h1 { font-size: 2em; }
-            #chatbotBtn, #langToggle { bottom: 90px; }
-            .mdrt-floating-badge { width: 70px; height: 70px; top: 15px; right: 15px; }
+            .mdrt-floating-badge { top: 80px; width: 65px; height: 65px; }
+            #chatbotBtn { bottom: 85px; }
+            #chatbotWindow { bottom: 155px; width: 90%; right: 5%; }
         }
     </style>
 </head>
 <body>
 
+    <div id="langSwitch">
+        <div class="lang-btn active" id="btnEn" onclick="setLanguage('en')">English</div>
+        <div class="lang-btn" id="btnMr" onclick="setLanguage('mr')">मराठी</div>
+    </div>
+
     <div class="mdrt-floating-badge" onclick="window.location.href='#about'">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A7kL-K-x3M8U9y_L9j1nK5tSjR9_tW5hCg&s" alt="MDRT Gold Member">
-        <div class="badge-label">MDRT 2024</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A7kL-K-x3M8U9y_L9j1nK5tSjR9_tW5hCg&s" alt="MDRT Gold">
     </div>
 
     <header>
@@ -197,273 +95,138 @@
             <span class="lang-en">Vivek Kadam - LIC Advisor</span>
             <span class="lang-mr hidden">विवेक कदम - एलआयसी सल्लागार</span>
         </h1>
-        <p>
-            <span class="lang-en">Securing Futures & Protecting Families Since 1999</span>
-            <span class="lang-mr hidden">१९९९ पासून भविष्य सुरक्षित आणि कुटुंबांचे संरक्षण करत आहोत</span>
-        </p>
-
         <div class="profile-container">
             <div class="profile-card-inner" id="profileCard">
                 <div class="profile-front">
-                    <img src="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg" class="profile-img-el" alt="Vedant Consultancy">
+                    <img src="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg" class="profile-img-el" alt="Vedant Logo">
                 </div>
                 <div class="profile-back">
-                    <img src="https://via.placeholder.com/150/004aad/ffffff?text=Vivek+Kadam" class="profile-img-el" alt="Vivek Kadam">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" class="profile-img-el" alt="Vivek Kadam">
                 </div>
             </div>
         </div>
     </header>
 
     <nav>
-        <a href="#about"><span class="lang-en">About</span><span class="lang-mr hidden">बद्दल</span></a>
-        <a href="#plans-table"><span class="lang-en">Plans</span><span class="lang-mr hidden">योजना</span></a>
-        <a href="#calculators"><span class="lang-en">Tools</span><span class="lang-mr hidden">साधने</span></a>
-        <a href="#success-stories"><span class="lang-en">Success</span><span class="lang-mr hidden">यशोगाथा</span></a>
-        <a href="#contact"><span class="lang-en">Contact</span><span class="lang-mr hidden">संपर्क</span></a>
+        <a href="#about">About</a>
+        <a href="#plans-table">Plans</a>
+        <a href="#calculators">Tools</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         
         <section id="about" class="card animate-in">
-            <h2><span class="lang-en">Expert Financial Planning</span><span class="lang-mr hidden">तज्ञ आर्थिक नियोजन</span></h2>
-            <div style="margin: 20px 0; padding: 15px; border-left: 5px solid var(--gold-main); background: #fffcf0;">
-                <p><strong>Experience:</strong> 26 Years of Dedicated Service</p>
-                <p><strong>Recognition:</strong> Million Dollar Round Table (MDRT) Member 2024</p>
-            </div>
-            <p><span class="lang-en">We specialize in Pension Planning, Child Education Funds, and High-Value Life Cover.</span><span class="lang-mr hidden">आम्ही पेन्शन नियोजन, मुलांचे शिक्षण निधी आणि उच्च-मूल्य जीवन विमा यात तज्ञ आहोत.</span></p>
+            <h2><span class="lang-en">26 Years of Trust</span><span class="lang-mr hidden">२६ वर्षांचा विश्वास</span></h2>
+            <p><span class="lang-en">Expert in Child Education, Pension Planning, and Life Insurance.</span><span class="lang-mr hidden">मुलांचे शिक्षण, पेन्शन नियोजन आणि जीवन विमा तज्ञ.</span></p>
         </section>
 
-        <section id="success-stories" class="card animate-in">
-            <h2><span class="lang-en">Success Stories</span><span class="lang-mr hidden">यशोगाथा</span></h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div style="background: #fdfdfd; padding: 20px; border-radius: 15px; border: 1px solid #eee;">
-                    <h4 style="color: var(--brand-primary); margin-bottom: 10px;">Education Fund</h4>
-                    <p style="font-size: 14px; font-style: italic;">"My daughter received ₹25 Lakhs for her MBA thanks to Vivek Sir's 15-year old planning."</p>
-                    <p style="margin-top: 10px; font-weight: 700; font-size: 12px;">— Mr. Deshmukh</p>
-                </div>
-                <div style="background: #fff5f5; padding: 20px; border-radius: 15px; border: 1px solid #ffebeb;">
-                    <h4 style="color: #d9534f; margin-bottom: 10px;">Quick Claim</h4>
-                    <p style="font-size: 14px; font-style: italic;">"The death claim was handled entirely by Vivek Sir without me visiting the office once."</p>
-                    <p style="margin-top: 10px; font-weight: 700; font-size: 12px;">— Mrs. Kulkarni</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="lead-magnet" class="card animate-in" style="background: linear-gradient(135deg, #ffffff 0%, #fff8e6 100%); border: 2px dashed var(--trust-gold);">
-            <h3 style="color: var(--brand-dark);">🎁 <span class="lang-en">Free Financial Guide</span><span class="lang-mr hidden">विनामूल्य आर्थिक मार्गदर्शक</span></h3>
-            <p><span class="lang-en">Download: "The 5 Secrets to Maximizing LIC Returns"</span><span class="lang-mr hidden">डाउनलोड करा: "LIC परतावा वाढवण्याचे ५ रहस्ये"</span></p>
-            <div style="margin-top: 20px;">
-                <input type="text" id="leadName" placeholder="Enter Full Name">
-                <input type="tel" id="leadPhone" placeholder="Enter WhatsApp Number">
-                <button onclick="requestPDFViaWA()" class="btn btn-green">RECEIVE PDF ON WHATSAPP</button>
+        <section id="plans-table" class="card animate-in">
+            <h2><span class="lang-en">LIC Plans Directory</span><span class="lang-mr hidden">एलआयसी योजना निर्देशिका</span></h2>
+            <input type="search" id="pSearch" placeholder="Search (Umang, Labh...)" onkeyup="filterPlans()">
+            <div style="overflow-x:auto;">
+                <table id="pTable" style="width:100%; border-collapse:collapse; margin-top:15px; text-align:left;">
+                    <tr style="background:var(--brand-dark); color:#fff;">
+                        <th style="padding:12px;">Plan Name</th><th style="padding:12px;">Benefit</th>
+                    </tr>
+                    <tr><td style="padding:10px; border-bottom:1px solid #eee;">Jeevan Umang</td><td style="padding:10px; border-bottom:1px solid #eee;">8% Lifetime Income</td></tr>
+                    <tr><td style="padding:10px; border-bottom:1px solid #eee;">Jeevan Labh</td><td style="padding:10px; border-bottom:1px solid #eee;">Wealth & Growth</td></tr>
+                    <tr><td style="padding:10px; border-bottom:1px solid #eee;">Jeevan Lakshya</td><td style="padding:10px; border-bottom:1px solid #eee;">Education Protection</td></tr>
+                </table>
             </div>
         </section>
 
         <section id="calculators" class="card animate-in">
-            <h2>📊 <span class="lang-en">Planning Calculators</span><span class="lang-mr hidden">नियोजन कॅल्क्युलेटर</span></h2>
-            <div class="calc-tabs">
-                <button class="calc-tab-btn active" onclick="openCalc('sip')">LIC vs SIP</button>
-                <button class="calc-tab-btn" onclick="openCalc('hlv')">HLV (Life Value)</button>
-                <button class="calc-tab-btn" onclick="openCalc('mat')">Maturity</button>
-            </div>
-            
-            <div id="sip-calc" class="calc-content">
-                <label>Monthly Budget (₹)</label>
-                <input type="number" id="sipPremium" value="5000">
-                <button class="btn" onclick="calcSIP()">Compare Security</button>
-                <div id="sipResult" class="calc-result hidden"></div>
-            </div>
-            
-            <div id="hlv-calc" class="calc-content hidden">
-                <label>Monthly Income (₹)</label>
-                <input type="number" id="hlvIncome" value="50000">
-                <label>Your Current Age</label>
-                <input type="number" id="hlvAge" value="35">
-                <button class="btn" onclick="calcHLV()">Find My Cover Need</button>
-                <div id="hlvResult" class="calc-result hidden"></div>
-            </div>
-
-            <div id="mat-calc" class="calc-content hidden">
-                <label>Sum Assured (₹)</label>
-                <input type="number" id="matSA" value="1000000">
-                <button class="btn" onclick="calcMat()">Estimate Final Payout</button>
-                <div id="matResult" class="calc-result hidden"></div>
-            </div>
-        </section>
-
-        <section id="plans-table" class="card animate-in">
-            <h2><span class="lang-en">Popular LIC Plans</span><span class="lang-mr hidden">लोकप्रिय एलआयसी योजना</span></h2>
-            <input type="search" id="planSearch" placeholder="Search plans (e.g. Umang, Labh)...">
-            <div class="table-wrapper">
-                <table id="planTable">
-                    <thead>
-                        <tr>
-                            <th>Plan Name</th>
-                            <th>Target Goal</th>
-                            <th>Key Feature</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Jeevan Umang (745)</td><td>Whole Life Income</td><td>8% Life-Long Guaranteed Pay</td></tr>
-                        <tr><td>Jeevan Labh (736)</td><td>Wealth Creation</td><td>Best Returns, Limited Pay</td></tr>
-                        <tr><td>New Endowment (714)</td><td>Family Savings</td><td>Bonus + Guaranteed Addition</td></tr>
-                        <tr><td>Tech Term (854)</td><td>Pure Protection</td><td>Huge Cover at Low Premium</td></tr>
-                        <tr><td>New Money Back (720)</td><td>Cash Flow</td><td>Returns every 5 years</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <button id="pdfBtn" class="btn" style="margin-top: 25px; background: var(--brand-dark);">DOWNLOAD FULL CATALOGUE PDF</button>
-        </section>
-
-        <section id="contact" class="card animate-in">
-            <h2><span class="lang-en">Get in Touch</span><span class="lang-mr hidden">संपर्क साधा</span></h2>
-            <p>📍 <strong>Office:</strong> Shivanand, 2nd Floor, SV Road, Goregaon (W), Mumbai 400062</p>
-            <p>📞 <strong>Phone:</strong> +91 96649 99797</p>
-            <p>✉️ <strong>Email:</strong> vivekkadam1969@gmail.com</p>
-            
-            <div style="display: flex; gap: 15px; margin-top: 25px;">
-                <a href="tel:+919664999797" class="btn" style="flex: 1;">CALL NOW</a>
-                <a href="https://wa.me/919664999797" class="btn" style="flex: 1; background: var(--whatsapp-green);">WHATSAPP</a>
-            </div>
+            <h2>📊 <span class="lang-en">Maturity Calculator</span><span class="lang-mr hidden">मॅच्युरिटी कॅल्क्युलेटर</span></h2>
+            <input type="number" id="matInput" placeholder="Enter Sum Assured (₹)" value="1000000">
+            <button class="btn" onclick="runCalc()">Calculate Maturity</button>
+            <div id="mRes" style="margin-top:15px; font-weight:700; color:var(--brand-primary); font-size:1.2rem;"></div>
         </section>
 
         <section id="book" class="card animate-in">
-            <h2>📅 <span class="lang-en">Book a Free Consultation</span><span class="lang-mr hidden">विनामूल्य सल्लामसलत बुक करा</span></h2>
+            <h2>📅 <span class="lang-en">Book a Meeting</span><span class="lang-mr hidden">भेट बुक करा</span></h2>
             <div class="calendly-inline-widget" data-url="https://calendly.com/vivekkadam1969/30min" style="min-width:320px;height:630px;"></div>
         </section>
 
+        <section id="contact" class="card animate-in">
+            <h2>📍 <span class="lang-en">Visit Office</span><span class="lang-mr hidden">कार्यालयाला भेट द्या</span></h2>
+            <p>Shivanand, 2nd Floor, S.V Road, Goregaon (W), Mumbai - 400062</p>
+            <div style="width:100%; height:350px; border-radius:15px; overflow:hidden; border:1px solid #ddd; margin-top:15px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.455243167909!2d72.84365767520779!3d19.17531778205041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b6ff03761353%3A0xc0780283e7a0364d!2sShivanand%20Housing%20Society!5e0!3m2!1sen!2sin!4v1709230000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
     </div>
 
-    <div id="langToggle" data-lang="en">EN | मराठी</div>
-
-    <button id="chatbotBtn">💬</button>
+    <button id="chatbotBtn" onclick="toggleChat()">💬</button>
     <div id="chatbotWindow">
-        <div style="background: var(--brand-primary); color: white; padding: 20px; font-weight: 800; text-align: center;">Assistant</div>
-        <div id="chatbotBody" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column;">
-            <div class="msg-bot">Hello! I am Vivek's Assistant. Ask me about Umang, Labh, or MDRT.</div>
+        <div style="background:var(--brand-primary); color:#fff; padding:15px; font-weight:800; display:flex; justify-content:space-between;">
+            <span>Assistant</span><span onclick="toggleChat()" style="cursor:pointer;">×</span>
         </div>
-        <div style="display: flex; padding: 10px; border-top: 1px solid #eee;">
-            <input type="text" id="chatbotInput" placeholder="Type a plan name..." style="margin:0; border:none;">
-            <button id="chatbotSend" style="background: var(--brand-primary); color: white; border: none; padding: 10px 15px; border-radius: 10px; cursor:pointer;">Send</button>
+        <div id="chatbotBody">
+            <div class="msg-bot">Ask me about **Umang**, **Labh**, or **MDRT**.</div>
+        </div>
+        <div style="padding:10px; display:flex; border-top:1px solid #eee; background:#fff;">
+            <input type="text" id="chatIn" placeholder="Type message..." style="margin:0; border:none; flex:1;">
+            <button onclick="handleChat()" style="background:var(--brand-primary); color:#fff; border:none; padding:10px; border-radius:5px;">➤</button>
         </div>
     </div>
 
     <div id="mobileContactBar">
-        <a href="tel:+919664999797" style="background: var(--brand-primary);">CALL</a>
-        <a href="https://wa.me/919664999797" style="background: var(--whatsapp-green);">WHATSAPP</a>
+        <a href="tel:+919664999797" style="background:var(--brand-primary);">CALL</a>
+        <a href="https://wa.me/919664999797" style="background:var(--whatsapp-green);">WHATSAPP</a>
     </div>
 
-    <footer style="text-align: center; padding: 40px; color: #777;">
-        © 2025 Vedant Consultancy | LIC Advisor Vivek Kadam
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <script>
-        // 1. PROFILE FLIP
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('profileCard').classList.add('flipped');
-            }, 1800);
-        });
+        // 1. PFP 1-SECOND FLIP LOGIC (AMAZON -> GOOGLE)
+        window.onload = () => {
+            setTimeout(() => { 
+                document.getElementById('profileCard').classList.add('flipped'); 
+            }, 1000); 
+        };
 
-        // 2. LANGUAGE LOGIC
-        const langBtn = document.getElementById('langToggle');
+        // 2. LANGUAGE SWITCHER
         function setLanguage(l) {
-            langBtn.setAttribute('data-lang', l);
-            document.querySelectorAll('.lang-en, .lang-mr').forEach(el => {
-                el.classList.toggle('hidden', !el.classList.contains('lang-' + l));
-            });
-        }
-        langBtn.onclick = () => setLanguage(langBtn.getAttribute('data-lang') === 'en' ? 'mr' : 'en');
-
-        // 3. SCROLL REVEAL
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
-
-        // 4. SEARCH PLAN
-        document.getElementById('planSearch').addEventListener('keyup', function() {
-            let filter = this.value.toLowerCase();
-            document.querySelectorAll('#planTable tbody tr').forEach(row => {
-                row.style.display = row.innerText.toLowerCase().includes(filter) ? "" : "none";
-            });
-        });
-
-        // 5. CALCULATOR LOGIC
-        function openCalc(type) {
-            document.querySelectorAll('.calc-content').forEach(c => c.classList.add('hidden'));
-            document.querySelectorAll('.calc-tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(type + '-calc').classList.remove('hidden');
-            event.currentTarget.classList.add('active');
+            document.querySelectorAll('.lang-en, .lang-mr').forEach(el => el.classList.toggle('hidden', !el.classList.contains('lang-'+l)));
+            document.getElementById('btnEn').classList.toggle('active', l==='en');
+            document.getElementById('btnMr').classList.toggle('active', l==='mr');
         }
 
-        function calcSIP() {
-            let val = document.getElementById('sipPremium').value;
-            let res = document.getElementById('sipResult');
-            res.classList.remove('hidden');
-            res.innerHTML = `For ₹${val}/mo, LIC guarantees protection. SIP is subject to market risks.`;
+        // 3. CALC
+        function runCalc() {
+            let v = document.getElementById('matInput').value;
+            document.getElementById('mRes').innerText = "Est. Maturity: ₹" + (v * 1.9).toLocaleString();
         }
 
-        function calcHLV() {
-            let inc = document.getElementById('hlvIncome').value;
-            let age = document.getElementById('hlvAge').value;
-            let res = document.getElementById('hlvResult');
-            res.classList.remove('hidden');
-            res.innerHTML = `Protective Need: ₹${(inc * 12 * (60 - age)).toLocaleString()}`;
+        // 4. SEARCH TABLE
+        function filterPlans() {
+            let f = document.getElementById('pSearch').value.toLowerCase();
+            document.querySelectorAll('#pTable tr').forEach((r, i) => { if(i>0) r.style.display = r.innerText.toLowerCase().includes(f) ? "" : "none"; });
         }
 
-        function calcMat() {
-            let sa = document.getElementById('matSA').value;
-            let res = document.getElementById('matResult');
-            res.classList.remove('hidden');
-            res.innerHTML = `Est. Maturity: ₹${(sa * 1.85).toLocaleString()} (Approx)`;
-        }
-
-        // 6. WHATSAPP REQUEST
-        function requestPDFViaWA() {
-            let name = document.getElementById('leadName').value;
-            let phone = document.getElementById('leadPhone').value;
-            if(!name || !phone) { alert("Please enter details"); return; }
-            let msg = encodeURIComponent(`Hello Sir, I am ${name}. Send me the LIC Guide.`);
-            window.open(`https://wa.me/919664999797?text=${msg}`);
-        }
-
-        // 7. PDF GENERATOR
-        document.getElementById('pdfBtn').onclick = () => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            doc.text("LIC Portfolio - Vivek Kadam", 20, 20);
-            doc.autoTable({ html: '#planTable', startY: 30 });
-            doc.save('LIC_Plans_Vedant.pdf');
-        };
-
-        // 8. CHATBOT
-        const chatIn = document.getElementById('chatbotInput');
-        const chatWin = document.getElementById('chatbotWindow');
-        const chatBody = document.getElementById('chatbotBody');
-        
-        document.getElementById('chatbotBtn').onclick = () => chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
-        
-        document.getElementById('chatbotSend').onclick = () => {
-            let txt = chatIn.value.toLowerCase();
-            if(!txt) return;
-            let uMsg = document.createElement('div'); uMsg.className='msg-user'; uMsg.textContent=chatIn.value;
-            chatBody.appendChild(uMsg);
-            chatIn.value = "";
-            
+        // 5. CHATBOT LOGIC
+        function toggleChat() { let w = document.getElementById('chatbotWindow'); w.style.display = (w.style.display === 'flex') ? 'none' : 'flex'; }
+        function handleChat() {
+            let i = document.getElementById('chatIn'); let b = document.getElementById('chatbotBody');
+            if(!i.value) return;
+            let uMsg = document.createElement('div'); uMsg.className='msg-user'; uMsg.textContent=i.value; b.appendChild(uMsg);
+            let txt = i.value.toLowerCase(); i.value = "";
             setTimeout(() => {
-                let reply = "Let me connect you with Vivek Sir.";
-                if(txt.includes('umang')) reply = "Jeevan Umang offers 8% guaranteed life-long income.";
-                if(txt.includes('labh')) reply = "Jeevan Labh is a high-return plan.";
-                
-                let bMsg = document.createElement('div'); bMsg.className='msg-bot'; bMsg.textContent=reply;
-                chatBody.appendChild(bMsg);
+                let r = "Connecting to Vivek Sir via WhatsApp...";
+                if(txt.includes('umang')) r = "Jeevan Umang offers 8% lifetime income.";
+                if(txt.includes('labh')) r = "Jeevan Labh is a high-return limited payment plan.";
+                if(txt.includes('mdrt')) r = "Vivek Kadam is a recognized MDRT member, ensuring expert advice.";
+                let bMsg = document.createElement('div'); bMsg.className='msg-bot'; bMsg.textContent=r; b.appendChild(bMsg);
+                b.scrollTop = b.scrollHeight;
+                if(!txt.includes('umang') && !txt.includes('labh') && !txt.includes('mdrt')) window.open('https://wa.me/919664999797?text=Question: '+txt);
             }, 600);
-        };
+        }
+
+        // 6. SCROLL OBSERVER
+        const obs = new IntersectionObserver((es) => { es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>

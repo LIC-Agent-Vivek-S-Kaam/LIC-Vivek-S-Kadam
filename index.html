@@ -76,7 +76,7 @@ nav a{color:var(--brand-dark);margin:0 15px;font-weight:600;padding: 5px 10px; b
 #planSearch { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
 
 .btn{display:inline-block;padding:14px 28px;border-radius:30px;background:linear-gradient(90deg, var(--brand), #005a9d);color:#fff;font-weight:700;border:0;cursor:pointer;transition: all 0.2s ease;text-transform: uppercase;letter-spacing: 0.5px;box-shadow: 0 4px 10px rgba(0, 74, 173, 0.3);}
-.btn-green{background:linear-gradient(90deg, var(--accent), #1cb355);box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);}
+.btn-green{background:linear-gradient(90deg, var(--accent), #1cb355);box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); width: 100%;}
 
 .contact-actions { display: flex; gap: 20px; margin-top: 20px; justify-content: center; }
 .contact-actions a { flex-grow: 1; max-width: 300px; text-align: center; padding: 12px 20px; border-radius: 8px; font-weight: 700; text-transform: uppercase; }
@@ -101,7 +101,6 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 .calc-result { background: #e8f0f8; padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 5px solid var(--brand); }
 .lead-magnet-box { background: linear-gradient(135deg, #fff 0%, #eef4f8 100%); border: 2px dashed var(--brand); text-align: center; }
 
-/* Calendly Container Aesthetic */
 .calendly-inline-widget {
     border: 1px solid rgba(0, 74, 173, 0.1);
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -120,19 +119,22 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 .mobile-whatsapp {background-color: var(--accent); color: white;}
 .mobile-call {background-color: var(--brand); color: white;}
 
-#chatbotBtn { position: fixed;bottom: 15px;left: 15px;background-color: var(--brand);color: white;border: none;border-radius: 50%;width: 50px;height: 50px;font-size: 1.5em;cursor: pointer;box-shadow: var(--shadow-strong);z-index: 1000; }
-#chatbotWindow { position: fixed;bottom: 75px;left: 15px;width: 300px;height: 400px;background: #fff;border-radius: 10px;box-shadow: var(--shadow-strong);z-index: 999;display: none;flex-direction: column;overflow: hidden; }
-#chatbotHeader {background-color: var(--brand);color: white;padding: 10px;font-weight: 600;}
-#chatbotBody {flex-grow: 1;padding: 10px;overflow-y: auto; display: flex; flex-direction: column;}
-#chatbotInput {width: 100%;padding: 10px;border: none;border-top: 1px solid #eee;outline: none;}
-.msg-bot {background: #e6f7ff; align-self: flex-start; padding: 8px; margin-bottom: 8px; border-radius: 8px;}
-.msg-user {background: #d4edda; align-self: flex-end; padding: 8px; margin-bottom: 8px; border-radius: 8px; margin-left: auto;}
+/* Chatbot Styles */
+#chatbotBtn { position: fixed;bottom: 15px;left: 15px;background-color: var(--brand);color: white;border: none;border-radius: 50%;width: 60px;height: 60px;font-size: 1.8em;cursor: pointer;box-shadow: var(--shadow-strong);z-index: 1001; }
+#chatbotWindow { position: fixed;bottom: 85px;left: 15px;width: 350px;height: 500px;background: #fff;border-radius: 20px;box-shadow: var(--shadow-strong);z-index: 1000;display: none;flex-direction: column;overflow: hidden; border: 1px solid rgba(0,0,0,0.1); }
+#chatbotHeader {background: var(--brand);color: white;padding: 15px;font-weight: 700; text-align: center;}
+#chatbotBody {flex-grow: 1;padding: 15px;overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: #fdfdfd;}
+#chatbotInputArea { display: flex; padding: 10px; border-top: 1px solid #eee; }
+#chatbotInputChat { flex: 1; border: none; outline: none; padding: 10px; font-family: inherit; }
+#chatbotSend { background: var(--brand); color: white; border: none; border-radius: 10px; padding: 10px 15px; cursor: pointer; }
+.msg { padding: 10px 14px; border-radius: 15px; max-width: 85%; font-size: 14px; }
+.msg-bot { background: #eef4f8; align-self: flex-start; border-bottom-left-radius: 2px; color: #333; }
+.msg-user { background: var(--brand); color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
 
-/* --- MOBILE OPTIMIZATIONS --- */
 @media(max-width:768px){
     #mobileContactBar {display: flex;}
     #chatbotBtn {bottom: 85px;}
-    #chatbotWindow {bottom: 145px; width: 90%; left: 5%;}
+    #chatbotWindow {bottom: 155px; width: 90%; left: 5%; height: 60vh;}
     .contact-actions {flex-direction: column;}
     header h1 { font-size: 1.8em; }
     nav { overflow-x: auto; white-space: nowrap; display: block; padding: 10px 5px; }
@@ -140,8 +142,6 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     .card { padding: 20px; }
     table { font-size: 12px; }
     th, td { padding: 8px 5px; }
-    .calc-tabs { overflow-x: auto; }
-    .calendly-inline-widget { height: 500px !important; }
 }
 </style>
 </head>
@@ -150,7 +150,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 <header>
     <h1><span class="lang-en">LIC Advisor - Vivek Kadam</span><span class="lang-mr hidden">एलआयसी सल्लागार - विवेक कदम</span></h1>
     <p><span class="lang-en">Your Trusted Life Insurance Partner Since 1999</span><span class="lang-mr hidden">आपला 1999 पासूनचा विश्वासू जीवन विमा साथी</span></p>
-    <img class="profile-img" src="https://lh3.googleusercontent.com/pw/AP1GczPlzTcIZ7AGf_dvuyBZN2jlZ3wMcA3aUq5s1lEeJX5Wk6WqLTWkcPhMXbwygpPB6_nkjuBzK0MXe20FTHVdSYgB8AG0Ju7l6VYf-uJLIVMXWRvnyxHZWyeikj-kweK-2XreouJvPw8S5uOZv-vAGPFd=w391-h869-s-no-gm?authuser=0" alt="Vivek Kadam, LIC Advisor">
+    <img class="profile-img" src="https://m.media-amazon.com/images/I/41N74gIUw1L._SY300_SX300_QL70_FMwebp_.jpg" alt="Vivek Kadam, LIC Advisor">
 </header>
 
 <nav>
@@ -184,8 +184,11 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 <section id="lead-magnet" class="card lead-magnet-box animate-in">
     <h3>🎁 <span class="lang-en">Free Financial Planning Checklist</span><span class="lang-mr hidden">विनामूल्य आर्थिक नियोजन चेकलिस्ट</span></h3>
     <p><span class="lang-en">Download: "The 5 Biggest Mistakes Pune Residents Make When Buying LIC"</span><span class="lang-mr hidden">डाउनलोड करा: "LIC खरेदी करताना पुणेकर करत असलेल्या ५ मोठ्या चुका"</span></p>
-    <input type="text" id="leadName" placeholder="Enter Your Name" style="padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
-    <button onclick="downloadGuide()" class="btn btn-green">Download Guide</button>
+    <div style="max-width: 400px; margin: 0 auto;">
+        <input type="text" id="leadName" placeholder="Enter Your Name" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+        <input type="tel" id="leadPhone" placeholder="WhatsApp Number" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;">
+        <button onclick="requestPDFViaWA()" class="btn btn-green">GET PDF VIA WHATSAPP</button>
+    </div>
 </section>
 
 <section id="calculators" class="card animate-in">
@@ -272,11 +275,17 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 </div>
 
 <div id="langToggle" data-lang="en"><span>EN</span><div class="switch"><div class="knob"></div></div><span>MR</span></div>
+
 <button id="chatbotBtn">💬</button>
-<div id="chatbotWindow" aria-hidden="true">
-    <div id="chatbotHeader">Chat with Vivek Sir</div>
-    <div id="chatbotBody"></div>
-    <input id="chatbotInput" placeholder="Type message & Enter">
+<div id="chatbotWindow">
+    <div id="chatbotHeader">Vivek Kadam's Assistant</div>
+    <div id="chatbotBody">
+        <div class="msg msg-bot">Hello! I am Vivek Kadam's virtual assistant. How can I help you today?</div>
+    </div>
+    <div id="chatbotInputArea">
+        <input type="text" id="chatbotInputChat" placeholder="Ask about LIC plans...">
+        <button id="chatbotSend">Send</button>
+    </div>
 </div>
 
 <div id="mobileContactBar">
@@ -290,6 +299,28 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
 <script>
+    // --- TIME BASED SALUTATION LOGIC ---
+    function getTimeSalutation() {
+        const h = new Date().getHours();
+        if (h >= 5 && h < 12) return "Good Morning";
+        if (h >= 12 && h < 17) return "Good Afternoon";
+        if (h >= 17 && h < 21) return "Good Evening";
+        return "Hello";
+    }
+
+    // --- NEW PDF REQUEST LOGIC ---
+    function requestPDFViaWA() {
+        const name = document.getElementById('leadName').value;
+        const phone = document.getElementById('leadPhone').value;
+        if(!name || !phone) { alert("Please enter both Name and WhatsApp Number."); return; }
+        
+        const salutation = getTimeSalutation();
+        const msg = encodeURIComponent(`${salutation} Vivek Kadam Sir, my name is ${name}. I just visited your website and I would like to receive the Free Financial Planning PDF on this number (${phone}). I would also like to have a meeting with you.`);
+        
+        window.open(`https://wa.me/919664999797?text=${msg}`, '_blank');
+    }
+
+    // --- ORIGINAL DOM CONTENT LOADED ---
     document.addEventListener('DOMContentLoaded', () => {
         const obs = new IntersectionObserver((es) => {
             es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
@@ -307,6 +338,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
     lt.addEventListener('click', () => updateLang(lt.getAttribute('data-lang') === 'en' ? 'mr' : 'en'));
     updateLang('en');
 
+    // --- ORIGINAL SEARCH LOGIC ---
     document.getElementById('planSearch').addEventListener('keyup', function() {
         const f = this.value.toLowerCase();
         document.querySelectorAll('#planTable tbody tr').forEach(r => {
@@ -314,6 +346,7 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         });
     });
 
+    // --- ORIGINAL CALCULATORS ---
     function openCalc(n) {
         document.querySelectorAll('.calc-content, .calc-tab-btn').forEach(el => el.classList.remove('active'));
         document.getElementById(n + '-calc').classList.add('active');
@@ -338,12 +371,52 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         res.classList.remove('hidden');
         res.innerHTML = `Estimated Maturity: <strong>₹${(s * 1.8).toLocaleString()}</strong> (Based on average term)`;
     }
-    function downloadGuide() { alert("Guide link sent to WhatsApp!"); }
 
-    const cb = document.getElementById('chatbotBtn');
-    const cw = document.getElementById('chatbotWindow');
-    cb.addEventListener('click', () => cw.style.display = cw.style.display === 'flex' ? 'none' : 'flex');
+    // --- CHATBOT LOGIC ---
+    const botBody = document.getElementById('chatbotBody');
+    const botInput = document.getElementById('chatbotInputChat');
+    const botSend = document.getElementById('chatbotSend');
+    const botWin = document.getElementById('chatbotWindow');
+    const botBtn = document.getElementById('chatbotBtn');
 
+    const faqs = {
+        "umang": "Jeevan Umang (745) offers 8% guaranteed annual income.",
+        "labh": "Jeevan Labh (736) is high maturity endowment plan.",
+        "mdrt": "Vivek Kadam is an MDRT recognized top-tier LIC advisor.",
+        "experience": "Vivek Sir has 26 years of trusted service since 1999."
+    };
+
+    botBtn.addEventListener('click', () => botWin.style.display = botWin.style.display === 'flex' ? 'none' : 'flex');
+
+    async function handleUserMsg() {
+        const userText = botInput.value.trim();
+        if (!userText) return;
+        addMsg(userText, 'user');
+        botInput.value = "";
+        
+        setTimeout(() => {
+            let found = false;
+            for (let k in faqs) { if (userText.toLowerCase().includes(k)) { addMsg(faqs[k], 'bot'); found = true; break; } }
+
+            if (!found) {
+                addMsg("I'm connecting you to Vivek Sir for a personalized answer...", 'bot');
+                const salutation = getTimeSalutation();
+                const waText = encodeURIComponent(`${salutation} Vivek Kadam Sir, I have a question: "${userText}". I would like to have a meeting with you.`);
+                sessionStorage.setItem('scrollToBooking', 'true');
+                window.open(`https://wa.me/919664999797?text=${waText}`, '_blank');
+            }
+        }, 1000);
+    }
+
+    function addMsg(t, type) {
+        const m = document.createElement('div'); m.className = `msg msg-${type}`; m.textContent = t;
+        botBody.appendChild(m); botBody.scrollTop = botBody.scrollHeight;
+    }
+
+    botSend.onclick = handleUserMsg;
+    botInput.onkeypress = (e) => { if(e.key === 'Enter') handleUserMsg(); };
+
+    // --- ORIGINAL PDF BUTTON LOGIC ---
     document.getElementById('pdfBtn').addEventListener('click', () => {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -351,7 +424,12 @@ th{background:var(--brand-dark);color:#fff;font-weight: 600; text-transform: upp
         doc.save('LIC_Plans_Vivek_Kadam.pdf');
     });
 
-    console.log('Website loaded');
+    window.onfocus = () => {
+        if(sessionStorage.getItem('scrollToBooking') === 'true') {
+            document.getElementById('book').scrollIntoView();
+            sessionStorage.removeItem('scrollToBooking');
+        }
+    };
 </script>
 </body>
 </html>
